@@ -1,3 +1,4 @@
+import Footer from "../components/Footer"
 import Header from "../components/Header"
 
 const AdminPage = () => {
@@ -5,6 +6,7 @@ const AdminPage = () => {
     <div>
       <Header/>
       <p>Admin Page</p>
+      <Footer/>
     </div>
   )
 }

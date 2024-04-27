@@ -1,11 +1,10 @@
-import { useState } from 'react'
+import LoginPageStyles from './LoginPage.module.css'
 
 const LoginPage = () => {
     
-  const[login,setLogin] = useState();
 
   return (
-    <div className='w-full '>
+    <div className={`${LoginPageStyles.loginPage} w-full vh-100  loginPage`}>
       
     </div>
   )

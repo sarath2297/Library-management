@@ -1,5 +1,6 @@
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import Home from './components/Home'
+import LoginPage from './Pages/LoginPage'
 
 
 function App() {
@@ -7,7 +8,9 @@ function App() {
 
   return (
     <>
-      <Home/>
+    <Routes>
+      <Route path='/' element={<LoginPage/>}/>
+    </Routes>
     </>
   )
 }

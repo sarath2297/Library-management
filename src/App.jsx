@@ -4,6 +4,7 @@ import Home from './components/Home'
 import LoginPage from './Pages/LoginPage'
 import UserPage from './Pages/UserPage'
 import AdminPage from './Pages/AdminPage'
+import List_of_Books from './Pages/List_of_Books'
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path='/' element={<LoginPage/>}/>
         <Route path='/user' element={<UserPage/>}/>
         <Route path='/admin' element={<AdminPage/>}/>
+        <Route path='/list' element={<List_of_Books/>}/>
 
       </Routes>
     </>

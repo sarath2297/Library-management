@@ -44,6 +44,7 @@ const LoginPage = () => {
           <div className={`${LoginPageStyles.loginPageContent} d-flex flex-column  mt-5 py-4
             rounded align-items-center  loginPageContent`}>
             {/* For Logo */}
+            <h1>hii</h1>
             <div className={`${LoginPageStyles.LogoDiv}   gap-6 p-4`}>
             <img src="src/assets/liblogo.png" alt="" />
             <h2 className='text-warning text-center'> <span className='text-start mr-auto'>Library</span> <br />Management System </h2>

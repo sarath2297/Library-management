@@ -2,6 +2,7 @@ import React from 'react'
 import { Col, Row } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import BookHistory from './BookHistory';
+import userpng from '../assets/user.png'
 
 function Bookdetails() {
   return (
@@ -16,7 +17,7 @@ function Bookdetails() {
                             <div className='ms-5 d-flex h-100' >
                             <Row>
                                <Col md={3} className='d-flex' style={{height:'300px'}}>
-                                    <Card style={{ width: '16rem' }}>
+                                    <Card style={{ height:'17rem' }}>
                                     <Card.Img variant="top" src="https://m.media-amazon.com/images/I/51iiVPgEP2L.jpg" style={{height:'250px'}}/>
                                     <Card.Body>
                                     <Card.Title>Card Title</Card.Title>
@@ -25,7 +26,7 @@ function Bookdetails() {
                                </Col>
 
                                <Col md={3} className='d-flex'  style={{height:'300px'}}>
-                                    <Card>
+                                    <Card style={{ height:'17rem' }}>
                                     <Card.Img variant="top" src="https://m.media-amazon.com/images/I/51iiVPgEP2L.jpg" style={{height:'250px'}}/>
                                     <Card.Body>
                                     <Card.Title>Card Title</Card.Title>
@@ -34,7 +35,7 @@ function Bookdetails() {
                                </Col>
         
                                <Col md={3} className='d-flex' style={{height:'300px'}}>
-                                    <Card>
+                                    <Card style={{ height:'17rem' }}>
                                     <Card.Img variant="top" src="https://m.media-amazon.com/images/I/51iiVPgEP2L.jpg" style={{height:'250px'}}/>
                                     <Card.Body>
                                     <Card.Title>Card Title</Card.Title>
@@ -43,7 +44,7 @@ function Bookdetails() {
                                </Col>
         
                                <Col md={3} className='d-flex' style={{height:'300px'}}>
-                                    <Card>
+                                    <Card style={{ height:'17rem' }}>
                                     <Card.Img variant="top" src="https://m.media-amazon.com/images/I/51iiVPgEP2L.jpg" style={{height:'250px'}}/>
                                     <Card.Body>
                                     <Card.Title>Card Title</Card.Title>
@@ -64,7 +65,7 @@ function Bookdetails() {
             <Col md={4}>
             <div className='w-75 rounded-5 d-flex flex-column justify-content-center align-items-center mb-5 shadow-lg' style={{height:'450px',marginTop:'60px',backgroundImage:`url()`}}>
                 <div className='bg-dark rounded-full' style={{width:'100px',height:'100px',borderRadius:'50%'}}>
-                    <img src="https://cdn-icons-png.flaticon.com/512/10307/10307852.png" alt="" style={{width:'100px',height:'100px',borderRadius:'50%'}}/>
+                    <img src={userpng} alt="" style={{width:'100px',height:'100px',borderRadius:'50%'}}/>
                 </div>
                 <table className='mt-3 mb-3' style={{width:'300px', height:'250px', fontSize:'18px',marginLeft:'20px'}}>
                                 <tbody>

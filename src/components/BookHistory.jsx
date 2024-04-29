@@ -11,7 +11,7 @@ function BookHistory() {
                             <div className='ms-5 d-flex h-100' >
                             <Row>
                                <Col md={3} className='d-flex' style={{height:'300px'}}>
-                                    <Card style={{ width: '16rem' }}>
+                                    <Card style={{ height:'17rem' }}>
                                     <Card.Img variant="top" src="https://m.media-amazon.com/images/I/51iiVPgEP2L.jpg" style={{height:'250px'}}/>
                                     <Card.Body>
                                     <Card.Title>Card Title</Card.Title>
@@ -20,7 +20,7 @@ function BookHistory() {
                                </Col>
 
                                <Col md={3} className='d-flex'  style={{height:'300px'}}>
-                                    <Card>
+                                    <Card style={{ height:'17rem' }}>
                                     <Card.Img variant="top" src="https://m.media-amazon.com/images/I/51iiVPgEP2L.jpg" style={{height:'250px'}}/>
                                     <Card.Body>
                                     <Card.Title>Card Title</Card.Title>
@@ -29,7 +29,7 @@ function BookHistory() {
                                </Col>
         
                                <Col md={3} className='d-flex' style={{height:'300px'}}>
-                                    <Card>
+                                    <Card style={{ height:'17rem' }}>
                                     <Card.Img variant="top" src="https://m.media-amazon.com/images/I/51iiVPgEP2L.jpg" style={{height:'250px'}}/>
                                     <Card.Body>
                                     <Card.Title>Card Title</Card.Title>
@@ -38,7 +38,7 @@ function BookHistory() {
                                </Col>
         
                                <Col md={3} className='d-flex' style={{height:'300px'}}>
-                                    <Card>
+                                    <Card style={{ height:'17rem' }}>
                                     <Card.Img variant="top" src="https://m.media-amazon.com/images/I/51iiVPgEP2L.jpg" style={{height:'250px'}}/>
                                     <Card.Body>
                                     <Card.Title>Card Title</Card.Title>

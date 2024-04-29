@@ -1,6 +1,6 @@
 .loginPage{
    background-color: blue;
-   background-image: url("src/assets/BackgroundImage.jpg");
+   background-image: url("src/assets/library-background.jpg");
    background-repeat: no-repeat;
    background-size: cover;
    /* filter: blur(4px); */

@@ -1,4 +1,38 @@
 .loginPage{
    background-color: blue;
    background-image: url("src/assets/BackgroundImage.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   /* filter: blur(4px); */
+}
+.loginPageContent{
+   width: 50%;
+   /* background-color: whitesmoke; */
+   border: 2px solid black;
+   background-color:(0,0,0,0.8);
+}
+.LogoDiv{
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        align-items: center;
+   & img{
+      border-radius: 2rem;
+      width: 8.5rem;
+   }
+}
+.loginForm{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+@media (max-width:700px){
+
+   .LogoDiv{
+      flex-wrap: wrap;
+
+   }
+   .loginPageContent{
+      width: 80%;
+   }
 }

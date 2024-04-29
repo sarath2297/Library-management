@@ -9,6 +9,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 
+
+const dropDownLists=["Novels","Fantasy","Romance","Biography/Autobiography","Chrime Thriller","Travel","Cooking/Food","History","Encyclopedias"]
 function List_of_Books() {
   return (
     <>
@@ -48,15 +50,10 @@ function List_of_Books() {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Novels</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Fantasy</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Romance</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Biography/Autobiography</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Chrime Thriller</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Travel</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Cooking/Food</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">History</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Encyclopedias</Dropdown.Item>
+                {dropDownLists.map((dropDownItem,index)=>{
+                  return( <Dropdown.Item href="#/action-2" key={index}>{dropDownItem} </Dropdown.Item>)
+                })}
+                
               </Dropdown.Menu>
             </Dropdown>
           

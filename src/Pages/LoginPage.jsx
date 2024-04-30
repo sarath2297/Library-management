@@ -22,8 +22,8 @@ const LoginPage = () => {
     const getUserName = formData.get("userName");
     const getUserPassword = formData.get("userPassword");
     if (!getUserName) {
-      console.log("UserName Cammot Be Empty");
-      errors.userName = "UserName Cammot Be Empty";
+      console.log("UserName Cannot Be Empty");
+      errors.userName = "UserName Cannot Be Empty";
     }
     if (!getUserPassword) {
       console.log("UserPassword Cannot Be Empty");
@@ -34,15 +34,22 @@ const LoginPage = () => {
       setLoginDetails({ userName: getUserName, password: getUserPassword });
       setErrorDetails();
       console.log("Here Entering");
-      console.log(loginDetails,"from Here");
-      const userData = (await loginApiByUserName(loginDetails.userName)).data;
+      console.log(getUserName,"from Here");
+      const userData = (await loginApiByUserName(getUserName)).data;
       console.log(userData);
+      const userDatas=userData.filter((data)=>{
+        return data.userPassword===getUserPassword
+      })
+      if(userDatas[0].role){
+        nav(userData[0].role)
+      }
+     
+
     } else {
       setErrorDetails(errors);
     }
   }
 
-  console.log(loginDetails);
 
   // const checkLogin = async () => {
  

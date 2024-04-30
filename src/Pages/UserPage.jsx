@@ -1,12 +1,12 @@
-import React from 'react'
 import Header from "../components/Header"
 import Footer from "../components/Footer"
+import Bookdetails from '../components/Bookdetails'
 
 function UserPage() {
   return (
     <>
         <Header/>
-        <div>UserPage</div>
+            <Bookdetails/>
         <Footer/>
     </>
   )

@@ -18,10 +18,10 @@
 .LogoDiv{
         display: flex;
         justify-content: center;
-        gap: 1rem;
+        gap: 2rem;
         align-items: center;
    & img{
-      border-radius: 2rem;
+      border-radius: 6rem;
       width: 8.5rem;
    }
 }
@@ -39,4 +39,5 @@
    .loginPageContent{
       width: 80%;
    }
+   
 }

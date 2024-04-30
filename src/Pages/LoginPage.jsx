@@ -45,8 +45,9 @@ const LoginPage = () => {
             rounded align-items-center  loginPageContent`}>
             {/* For Logo */}
             <div className={`${LoginPageStyles.LogoDiv}   gap-6 p-4`}>
-            <img src="src/assets/liblogo.png" alt="" />
-            <h2 className='text-warning text-center'> <span className='text-start mr-auto'>Library</span> <br />Management System </h2>
+              
+            <img src="src\assets\logo.png" alt="" />
+            <h2 className='text-warning text-center'> <span className='text-start mr-auto text-light'>LibrarianPro</span> <br />Digital Library </h2>
             </div>
             <div className={` d-flex w-75  flex-column align-items-center`}>
               <form className={LoginPageStyles.loginForm} onSubmit={loginHandler} id='fomrData'>
@@ -59,6 +60,11 @@ const LoginPage = () => {
                 <label htmlFor="" className='text-warning fw-normal px-2'>Password</label>
                 <input type="text" placeholder='Enter Your Password' className='form-control' name='userPassword'/>
                 {errorDetails?.userPassword && <p className='text-danger'>{errorDetails?.userPassword}</p>}
+              </div>
+              <div className='d-flex text-warning mt-3 '>
+                <h6 className='me-5'>User <input type="radio" name="User" id="" /></h6>
+                <h6>Admin <input type="radio" name="Admin" id="" /></h6>
+                
               </div>
                <button className='px-4 py-1 bg-warning rounded mt-3' >Login</button>
               </form>

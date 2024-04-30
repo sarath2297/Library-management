@@ -1,14 +1,14 @@
-import admindash from '../Admin/AdminDashBoard.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBook, faUserGroup } from '@fortawesome/free-solid-svg-icons'
+import { faBook, faUserGroup , faTrash} from '@fortawesome/free-solid-svg-icons'
+import NameTime from '../Common/NameTime'
 
 function AdminDashBoard() {
     
   return (
     <>
         <div className='ms-3'>
-            <h2>Hello, <span className={admindash.admindashspan}>Admin</span></h2>
-            <h6>Apr 29,2024 | Monday, 09:30 PM</h6>
+            <NameTime/>
+
 
             <div className='row mb-5 mt-5'>
                 <div className='col-md-7'>
@@ -30,7 +30,7 @@ function AdminDashBoard() {
                                 <td>dv</td>
                                 <td>sscdv</td>
                                 <td>xasccdf</td>
-                                <td>...</td>
+                                <td><FontAwesomeIcon icon={faTrash}/></td>
                             </tr>
                         </tbody>
                     </table>

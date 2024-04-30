@@ -1,4 +1,3 @@
-import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
@@ -10,7 +9,7 @@ function Footer() {
         <div className='row'>
           <div className='col-md-3'>
           <h3 className='mb-3 mt-4'><b>Library</b></h3>
-            <p className=''>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam odit rem impedit labore sed dolores quas error vel quam quod id voluptas necessitatibus consequatur, cumque</p>
+            <p className=''>"Books are the quietest and most constant of friends; they are the most accessible and wisest of counselors, and the most patient of teachers." - Charles William Eliot</p>
           </div>
           <div className='col-md-1'></div>
           <div className='col-md-2'>
@@ -18,10 +17,14 @@ function Footer() {
             <p>Home</p> 
           </div>
           <div className='col-md-3'>
-            <h4 className='mb-3 mt-4'>Guides</h4>
-            <p>React</p>
-            <p>React Bootstrap</p>
-            <p>Bootswatch</p>
+            <h4 className='mb-3 mt-4 text-center'>Hours of Operation</h4>
+            <div className='text-center'>
+            <p>Current Hours</p>
+            <p>Weekdays closed</p>
+           
+           
+            </div>
+
           </div>
           <div className='col-md-3'>
             <h4 className='mb-3 mt-4'>Contact Us</h4>

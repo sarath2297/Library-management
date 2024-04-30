@@ -1,11 +1,11 @@
 import { faBell, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import avatar from "../assets/avatar.jpg";
+import avatar from "../../assets/avatar.jpg";
 
 import AdminNavrBarStyle from "./AdminNavBar.module.css";
-import { useRef, useState } from "react";
-import LogoutModal from "./LogoutModal";
-import AddBookModal from "./Admin/AddBookModal";
+import { useRef} from "react";
+import LogoutModal from "../LogoutModal";
+import AddBookModal from "./AddBookModal";
 
 const AdminNavBar = () => {
   const modal = useRef();

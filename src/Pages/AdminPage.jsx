@@ -1,5 +1,5 @@
-import AdminDashBoard from "../components/AdminDashBoard"
-import AdminNavBar from "../components/AdminNavBar"
+import AdminDashBoard from "../components/Admin/AdminDashBoard"
+import AdminNavBar from "../components/Admin/AdminNavBar"
 import Footer from "../components/Footer"
 
 const AdminPage = () => {
@@ -7,7 +7,7 @@ const AdminPage = () => {
     <div>
       <AdminNavBar/>
       <AdminDashBoard/>
-      {/* <Bookdetails/> */}
+
       <Footer/>
     </div>
   )

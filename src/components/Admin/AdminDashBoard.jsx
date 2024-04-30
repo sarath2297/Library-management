@@ -1,4 +1,4 @@
-import admindash from '../Pages/AdminDashBoard.module.css'
+import admindash from '../../Pages/AdminDashBoard.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserGroup } from '@fortawesome/free-solid-svg-icons'
 

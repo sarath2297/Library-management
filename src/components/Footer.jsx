@@ -31,6 +31,7 @@ function Footer() {
             <FontAwesomeIcon icon={faLinkedin} size='xl'/>
             <FontAwesomeIcon icon={faFacebook} size='xl'/>
             </div>
+            <h1>Checking</h1>
          </div>
     </div>
         

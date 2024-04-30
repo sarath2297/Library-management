@@ -9,7 +9,7 @@ function UserPage() {
     <>
         <Header/>
         <div className="ms-3 mt-2">
-          <NameTime/>
+          <NameTime userName="User"/>
   
           <div className='row mb-5 mt-5 ms-3'>
                   <div className='col-md-3'>

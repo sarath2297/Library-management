@@ -7,7 +7,7 @@ function AdminDashBoard() {
   return (
     <>
         <div className='ms-3'>
-            <NameTime/>
+            <NameTime userName="Admin"/>
 
 
             <div className='row mb-5 mt-5'>

@@ -1,0 +1,10 @@
+.admindashspan{
+    color: red;
+}
+table td{
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+table th{
+    padding-bottom: 10px;
+}

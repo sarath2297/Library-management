@@ -1,12 +1,13 @@
-import Bookdetails from "../components/Bookdetails"
+import AdminDashBoard from "../components/AdminDashBoard"
+import AdminNavBar from "../components/AdminNavBar"
 import Footer from "../components/Footer"
-import Header from "../components/Header"
 
 const AdminPage = () => {
   return (
     <div>
-      <Header/>
-      <Bookdetails/>
+      <AdminNavBar/>
+      <AdminDashBoard/>
+      {/* <Bookdetails/> */}
       <Footer/>
     </div>
   )

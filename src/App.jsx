@@ -18,6 +18,7 @@ function App() {
         <Route path='/user' element={<UserPage/>}/>
         <Route path='/admin' element={<AdminPage/>}/>
         <Route path='/list' element={<List_of_Books/>}/>
+        <Route path="*"  element={<LoginPage/>}/>
 
       </Routes>
     </>

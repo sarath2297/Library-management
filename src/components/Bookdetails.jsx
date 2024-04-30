@@ -62,7 +62,7 @@ function Bookdetails() {
             </Col>
             <Col md={1}></Col>
             
-            <Col md={4}>
+            <Col md={4} className='p-0'>
             <div className='w-75 rounded-5 d-flex flex-column justify-content-center align-items-center mb-5 shadow-lg' style={{height:'450px',marginTop:'60px',backgroundImage:`url()`}}>
                 <div className='bg-dark rounded-full' style={{width:'100px',height:'100px',borderRadius:'50%'}}>
                     <img src={userpng} alt="" style={{width:'100px',height:'100px',borderRadius:'50%'}}/>

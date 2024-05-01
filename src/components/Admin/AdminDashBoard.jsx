@@ -1,12 +1,24 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBook, faUserGroup , faTrash} from '@fortawesome/free-solid-svg-icons'
 import NameTime from '../Common/NameTime'
-import {getUserDataApi} from '../../services/AllApis'
+import {deleteABookApi, getUserDataApi} from '../../services/AllApis'
 import { useEffect, useState } from 'react'
 
-function AdminDashBoard() {
+function AdminDashBoard({displayCard}) {
 
  const [count,setCount] = useState(0)
+ const [deleteBookStatus , setDeleteBookStatus] = useState(false)
+
+ const handleDelete = async(id) =>{
+    const result = await deleteABookApi(id)
+    console.log(result);
+    if(result.status>=200 && result.status<300){
+      setDeleteBookStatus(true)
+    }
+    else{
+      alert('Something Went Wrong')
+    }
+  }
 
  /* const getCount = async (usre)=>{
     const response = await getUserDataApi()
@@ -47,7 +59,7 @@ function AdminDashBoard() {
                                 <td>dv</td>
                                 <td>sscdv</td>
                                 <td>xasccdf</td>
-                                <td><FontAwesomeIcon icon={faTrash}/></td>
+                                <td><FontAwesomeIcon icon={faTrash} onClick={handleDelete(displayCard?.id)}/></td>
                             </tr>
                         </tbody>
                     </table>

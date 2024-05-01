@@ -30,7 +30,7 @@ const AdminNavBar = ({handleAddNewBook}) => {
     <>
       <div className="d-flex justify-content-between align-items-center bg-warning py-2">
         <div>
-          <p className="px-2 my-auto">dashboard</p>
+          <p className="px-2 my-auto">Dashboard</p>
         </div>
         <div className={AdminNavrBarStyle.leftsection}>
           <div className={AdminNavrBarStyle.searchSection}>

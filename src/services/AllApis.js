@@ -24,6 +24,11 @@ export const getUploadBookApi = async() => {
    return await commonAPI('GET', `${baseURL}/books`,'')
 }
 
+//api to delete a book
+export const deleteABookApi = async(id) =>{
+   return await commonAPI('DELETE',`${baseURL}/books/${id}`,{})
+}
+
 
 
 

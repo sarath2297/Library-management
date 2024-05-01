@@ -26,10 +26,10 @@ const AddBookModal = forwardRef(function AddBookModal({hideAddBookModal,handleAd
     if(response.status>=200 && response.status<300){
       alert('Book details uploaded successfully')
       setBookDetails({
-          title : '',
-          author :'',
-          imageLink : '',
-          genre: ''
+          title : "",
+          author :"",
+          imageLink : "",
+          genre: ""
       })
       hideAddBookModal()
   }
@@ -69,7 +69,7 @@ const AddBookModal = forwardRef(function AddBookModal({hideAddBookModal,handleAd
         <div className="p-2 ms-5 my-2">
         <button className="px-3 py-1 rounded btn bg-danger text-light" onClick={hideAddBookModal} >Discard</button>
 
-        <button className="mx-5 px-3 py-1 rounded btn bg-success text-light" onClick={handleUpload}>Save</button>
+        <button className="mx-5 px-3 py-1 rounded btn bg-success text-light" onClick={handleUpload} >Save</button>
          </div>
 
       </div>

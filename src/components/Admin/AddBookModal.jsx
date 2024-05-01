@@ -34,7 +34,6 @@ const AddBookModal = forwardRef(function AddBookModal({hideAddBookModal,handleAd
       hideAddBookModal()
   }
   else{
-    console.log(response);
     alert('Something went wrong')
   }
   }

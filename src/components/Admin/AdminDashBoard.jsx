@@ -9,21 +9,16 @@ function AdminDashBoard({displayCard}) {
  const [count,setCount] = useState(0)
  const [deleteBookStatus , setDeleteBookStatus] = useState(false)
 
- const handleDelete = async(id) =>{
-    const result = await deleteABookApi(id)
-    console.log(result);
-    if(result.status>=200 && result.status<300){
-      setDeleteBookStatus(true)
-    }
-    else{
-      alert('Something Went Wrong')
-    }
-  }
-
- /* const getCount = async (usre)=>{
-    const response = await getUserDataApi()
-    console.log(response.data);
- } */
+//  const handleDelete = async(id) =>{
+//     const result = await deleteABookApi(id)
+//     console.log(result);
+//     if(result.status>=200 && result.status<300){
+//       setDeleteBookStatus(true)
+//     }
+//     else{
+//       alert('Something Went Wrong')
+//     }
+//   }
 
 
  useEffect(()=>{const getCount = async ()=>{
@@ -56,22 +51,13 @@ function AdminDashBoard({displayCard}) {
                             </tr>
                         </thead>
                         <tbody>
-<<<<<<< HEAD
-                            {getAllBooks.map((book,index)=>{
-                                return <tr key={index} className='border-bottom border-light'>
-                                <td>{book.title}</td>
-                                <td>{book.author}</td>
-                                <td>{book.genre}</td>
-                                <td><FontAwesomeIcon icon={faTrash}/></td>
-=======
                             <tr className='border-bottom border-light'>
                                 <td>dv</td>
                                 <td>sscdv</td>
                                 <td>xasccdf</td>
-                                <td><FontAwesomeIcon icon={faTrash} onClick={handleDelete(displayCard?.id)}/></td>
->>>>>>> f273ab2c3dd56d27d39322e5d6f0f2e060c69bd3
+                                <td><FontAwesomeIcon icon={faTrash} /></td>
                             </tr>
-                            })}
+    
                             
                         </tbody>
                     </table>

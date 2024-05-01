@@ -1,6 +1,6 @@
 import { useState } from "react";
 import LoginPageStyles from "./LoginPage.module.css";
-import {  loginApiByUserName } from "../services/AllApis";
+import { loginApiByUserName } from "../services/AllApis";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
@@ -12,11 +12,14 @@ const LoginPage = () => {
 
   const errors = {};
 
-  const loginHandler =async(e)=>{
+  const loginHandler = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const getUserName = formData.get("userName");
     const getUserPassword = formData.get("userPassword");
+    const getRole = formData.get("role");
+
+    console.log(getRole);
     if (!getUserName) {
       console.log("UserName Cannot Be Empty");
       errors.userName = "UserName Cannot Be Empty";
@@ -28,24 +31,23 @@ const LoginPage = () => {
 
     if (Object.keys(errors).length === 0) {
       setErrorDetails();
-      console.log("Here Entering");
-      console.log(getUserName,"from Here");
-      const userData = (await loginApiByUserName(getUserName)).data;
+      const userData = (await loginApiByUserName(getUserName, getRole)).data;
       console.log(userData);
-      const userDatas=userData.filter((data)=>{
-        return data.userPassword===getUserPassword
-      })
-      if(userDatas[0].role){
-        nav(userData[0].role)
-      }
-     
+      const userLoginDetials = userData.filter((data) => {
+        return data.userPassword === getUserPassword;
+      });
 
+      if (userData.length != 0) {
+        if (userLoginDetials[0].role) {
+          nav(userLoginDetials[0].role);
+        }
+      } else {
+        alert("Invalid User Name || Inavlid   Password");
+      }
     } else {
       setErrorDetails(errors);
     }
-  }
-
-
+  };
 
   return (
     <div
@@ -58,16 +60,23 @@ const LoginPage = () => {
         {/* For Logo */}
         <div className={`${LoginPageStyles.LogoDiv}   gap-6 p-4`}>
           <img src="src/assets/logo.png" alt="" />
-          <div >
+          <div>
             <h2 className="text-warning text-center">
               {" "}
-              <span className="text-start mr-auto text-primary"><span className="text-warning">L</span>ibrarian<span className="text-warning">P</span>ro</span> <br />
+              <span className="text-start mr-auto text-primary">
+                <span className="text-warning">L</span>ibrarian
+                <span className="text-warning">P</span>ro
+              </span>{" "}
+              <br />
               Digital Library{" "}
             </h2>
-            <p className="text-light">where every <span className="text-primary">click</span> opens the gateway to endless learning</p>
+            <p className="text-light">
+              where every <span className="text-primary">click</span> opens the
+              gateway to endless learning
+            </p>
           </div>
         </div>
-        
+
         <div className={` d-flex w-75  flex-column align-items-center`}>
           <form
             className={LoginPageStyles.loginForm}
@@ -103,8 +112,12 @@ const LoginPage = () => {
               )}
             </div>
             <div className="text-warning mt-2 d-flex  align-items-center">
-              <h5 className="me-5 align-items-center">User <input type="radio" name="user" id="user" /></h5>
-              <h5 className="align-items-center">Admin <input type="radio" name="admin" id="admin" /></h5>
+              <h5 className="me-5 align-items-center">
+                User <input type="radio" name="role" value="user" />
+              </h5>
+              <h5 className="align-items-center">
+                Admin <input type="radio" name="role" value="admin" />
+              </h5>
             </div>
             <button
               className="px-4 py-1 bg-warning rounded mt-3"
@@ -113,7 +126,12 @@ const LoginPage = () => {
               Login
             </button>
             <div className="mt-4 text-primary">
-              <h6>Are you a new user?.. <a href="/register" className="text-warning">Register Now</a></h6>
+              <h6>
+                Are you a new user?..{" "}
+                <a href="/register" className="text-warning">
+                  Register Now
+                </a>
+              </h6>
             </div>
           </form>
         </div>

@@ -15,10 +15,10 @@ import { useNavigate } from "react-router-dom";
 const dropDownLists=["Novels","Fantasy","Romance","Biography/Autobiography","Chrime Thriller","Travel","Cooking/Food","History","Encyclopedias"]
 function List_of_Books() {
 
-  const toHome = useNavigate()
+  const navgivate = useNavigate()
 
   const backtoHome = ()=>{
-    toHome('/user')
+    navgivate('/user')
   }
 
   return (
@@ -27,10 +27,9 @@ function List_of_Books() {
 
       <div className={List_of_BooksStyle.main}>
         <div className={List_of_BooksStyle.head}>
-          
+                    
             <h2>Get your Books</h2>
-          
-          
+            
            <div style={{position:"relative"}}>
            <FontAwesomeIcon icon={faMagnifyingGlass} flip style={{color: "#ffffff",marginRight:'5',position:"absolute",right:"0",top:"0.5rem"}} />
            <input

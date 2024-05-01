@@ -32,7 +32,7 @@ const AdminNavBar = () => {
 
   return (
     <>
-      <div className="d-flex justify-content-between align-items-center bg-light py-2">
+      <div className="d-flex justify-content-between align-items-center bg-warning py-2">
         <div>
           <p className="px-2 my-auto">dashboard</p>
         </div>
@@ -57,10 +57,6 @@ const AdminNavBar = () => {
 
           <div className={AdminNavrBarStyle.avatarDesigin}>
             <FontAwesomeIcon icon={faBell} className="fa-xl" />
-            <button className="rounded-circle" onClick={showModalHanlder}>
-              {" "}
-              <img src={avatar} alt="Avatar Logo" className="rounded-circle" />
-            </button>
           </div>
         </div>
         <LogoutModal ref={modal}  hideModal={hideModal}/>

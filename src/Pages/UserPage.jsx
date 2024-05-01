@@ -1,17 +1,23 @@
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBook, faUserGroup , faTrash} from '@fortawesome/free-solid-svg-icons'
+import { faBook, faUserGroup , faTrash,faArrowRight} from '@fortawesome/free-solid-svg-icons'
 import NameTime from "../components/Common/NameTime"
+import Button from 'react-bootstrap/Button';
+import List_of_BooksStyle from "./List_of_Books.module.css";
 
 function UserPage() {
   return (
     <>
         <Header/>
-        <div className="ms-3 mt-2">
+        <div className={`${List_of_BooksStyle.image} `}>
+          <div className="ms-3 ">
+          <div>
           <NameTime userName="User"/>
+          <Button variant="warning" className='mt-2'>Go to Library <FontAwesomeIcon icon={faArrowRight} fade style={{color: "#ffffff",}} /></Button>
+          </div>
   
-          <div className='row mb-5 mt-5 ms-3'>
+          <div className='row mt-5 ms-3'>
                   <div className='col-md-3'>
                   <div  style={{width:'300px',height:'100px',color:'white',backgroundColor:'#4d4948', borderRadius:'20px',marginLeft:'10px',marginBottom:'20px'}}>
                           <div className='d-flex align-items-center justify-content-between px-3 py-1' >
@@ -32,7 +38,7 @@ function UserPage() {
                               <h4>1223</h4>
                               <div className='d-flex align-items-center justify-content-center' style={{width:'35px',height:'35px',backgroundColor:'orange', borderRadius:'20px'}}><FontAwesomeIcon icon={faBook} /></div>
                           </div>
-                          <p className='mt-4 ms-3'>Archived Books</p>
+                          <p className='mt-4 ms-3'>Wishlested Books</p>
                   </div>
                   </div>
                   <div className="col-md-1"></div>
@@ -66,6 +72,7 @@ function UserPage() {
                   
                   
               </div>
+          </div>
         </div>
         <Footer/>
     </>

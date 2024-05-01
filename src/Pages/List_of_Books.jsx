@@ -6,7 +6,7 @@ import Cards from "../components/Cards";
 import { Col, Row } from "react-bootstrap";
 import Dropdown from 'react-bootstrap/Dropdown';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass,faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -19,7 +19,7 @@ function List_of_Books() {
       <div className={List_of_BooksStyle.main}>
         <div className={List_of_BooksStyle.head}>
           
-            <h1>List of Books</h1>
+            <h2>Get your Books</h2>
           
           
            <div style={{position:"relative"}}>
@@ -45,8 +45,8 @@ function List_of_Books() {
           
           
             <Dropdown>
-              <Dropdown.Toggle variant="transparent" id="dropdown-basic" style={{color:'white'}}>
-               Categories
+              <Dropdown.Toggle variant="transparent" id="dropdown-basic" style={{color:'white', width:'150px'}}>
+              Genre
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
@@ -60,9 +60,10 @@ function List_of_Books() {
         </div>
 
         <div className="row" style={{paddingInline:"10px" , paddingBottom:"10px"}}>
-           <div className="row ms-2 mt-5">
+           <div className="row ms-5 mt-3">
            <h4 className="text-light">Category Name</h4>
            </div>
+             <div className="col-1"></div>
              <div className="col-10">
                <Row className="w-100 ">
                   <Col sm={12} md={6} lg={3} className="mt-3">
@@ -77,18 +78,16 @@ function List_of_Books() {
                   <Col sm={12} md={6} lg={3} className="mt-3">
                       <Cards />
                  </Col>
+                 <Col sm={12} md={6} lg={3} className="mt-3">
+                      <Cards />
+                 </Col>
                 
                </Row>
              </div>
-              <div className="col-2 p-2" style={{ backgroundColor: "transparent",borderColor:'white',borderWidth:'2',borderRadius:'4'}} >
-                <div className="row p-2 h-50 mt-5" style={{color:'black'}}>
-                   <h3>favorites</h3>
-                </div>
-                <div className="row p-2 h-50 my-5" style={{color:'black'}}>
-                   <h3>read later</h3>
-                </div>
-            
-            </div>
+           {/*   <div className="col-1 arrow">
+             <FontAwesomeIcon icon={faArrowUp} beat size="lg" style={{color: "#ffffff",}} />
+             </div> */}
+             
         </div>
 
 

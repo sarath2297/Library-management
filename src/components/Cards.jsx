@@ -4,15 +4,16 @@ import Card from 'react-bootstrap/Card';
 function Cards() {
   return (
     <div>
-         <Card style={{ width: "14rem", marginTop:"2px" }}>
+         <Card style={{ width: "15rem", marginTop:"2px" }}>
             <Card.Img variant="top" src="https://m.media-amazon.com/images/I/416OL7OEsWL.AC_SX250.jpg" style={{height:'200px'}} />
             <Card.Body>
               <Card.Title>Name of Book</Card.Title>
               <Card.Text>
                <p>Auther :</p>
-               <p>Category :</p>
+               <p>Genre :</p>
               </Card.Text>
-              <Button variant="primary" >Take Book</Button>
+              <Button variant="primary" className='me-2' >Take Book</Button>
+              <Button variant="warning" className='ms-2'>Wishlist</Button>
             </Card.Body>
           </Card>
     </div>

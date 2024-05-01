@@ -3,6 +3,7 @@ import LoginPageStyles from "./LoginPage.module.css";
 import { loginApi, loginApiByUserName } from "../services/AllApis";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import logo from '../assets/logo.png'
 
 const LoginPage = () => {
   const nav = useNavigate();
@@ -71,13 +72,17 @@ const LoginPage = () => {
       >
         {/* For Logo */}
         <div className={`${LoginPageStyles.LogoDiv}   gap-6 p-4`}>
-          <img src="src/assets/liblogo.png" alt="" />
-          <h2 className="text-warning text-center">
-            {" "}
-            <span className="text-start mr-auto">Library</span> <br />
-            Management System{" "}
-          </h2>
+          <img src="src/assets/logo.png" alt="" />
+          <div >
+            <h2 className="text-warning text-center">
+              {" "}
+              <span className="text-start mr-auto text-primary"><span className="text-warning">L</span>ibrarian<span className="text-warning">P</span>ro</span> <br />
+              Digital Library{" "}
+            </h2>
+            <p className="text-light">where every <span className="text-primary">click</span> opens the gateway to endless learning</p>
+          </div>
         </div>
+        
         <div className={` d-flex w-75  flex-column align-items-center`}>
           <form
             className={LoginPageStyles.loginForm}
@@ -112,12 +117,19 @@ const LoginPage = () => {
                 <p className="text-danger">{errorDetails?.userPassword}</p>
               )}
             </div>
+            <div className="text-warning mt-2 d-flex  align-items-center">
+              <h5 className="me-5 align-items-center">User <input type="radio" name="user" id="user" /></h5>
+              <h5 className="align-items-center">Admin <input type="radio" name="admin" id="admin" /></h5>
+            </div>
             <button
               className="px-4 py-1 bg-warning rounded mt-3"
               // onClick={checkLogin}
             >
               Login
             </button>
+            <div className="mt-4 text-primary">
+              <h6>Are you a new user?.. <a href="" className="text-warning">Register Now</a></h6>
+            </div>
           </form>
         </div>
       </div>

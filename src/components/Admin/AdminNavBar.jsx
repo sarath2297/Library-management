@@ -6,7 +6,7 @@ import { useRef} from "react";
 import LogoutModal from "../LogoutModal";
 import AddBookModal from "./AddBookModal";
 
-const AdminNavBar = () => {
+const AdminNavBar = ({handleAddNewBook}) => {
   const modal = useRef();
 
   const addBookModalRef=useRef();
@@ -30,7 +30,7 @@ const AdminNavBar = () => {
     <>
       <div className="d-flex justify-content-between align-items-center bg-warning py-2">
         <div>
-          <p className="px-2 my-auto">dashboard</p>
+          <p className="px-2 my-auto">Dashboard</p>
         </div>
         <div className={AdminNavrBarStyle.leftsection}>
           <div className={AdminNavrBarStyle.searchSection}>
@@ -56,7 +56,7 @@ const AdminNavBar = () => {
           </div>
         </div>
         <LogoutModal ref={modal}  hideModal={hideModal}/>
-        <AddBookModal ref={addBookModalRef} hideAddBookModal={hideAddBookModal}/>
+        <AddBookModal ref={addBookModalRef} hideAddBookModal={hideAddBookModal} handleAddNewBook={handleAddNewBook}/>
       </div>
 
     

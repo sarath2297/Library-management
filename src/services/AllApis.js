@@ -12,7 +12,6 @@ export const loginApiByUserName=async(userName,role)=>{
 
 export const getUserDataApi=async(role)=>{
    return await commonAPI('GET',`${baseURL}/login?role=${role}`,'')
-
 }
 
 //api for adding book
@@ -30,5 +29,12 @@ export const getUploadBookApi = async() => {
 export const addUserBookApi = async(reqBody) =>{
    return await commonAPI('POST',`${baseURL}/userBookList`,reqBody)
 }
+
+//api to delete a book
+export const deleteABookApi = async(id) =>{
+   return await commonAPI('DELETE',`${baseURL}/books/${id}`,{})
+}
+
+
 
 

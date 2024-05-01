@@ -15,8 +15,8 @@ const LogoutModal = forwardRef(function LogoutModal({ hideModal }, ref) {
       <div className="d-flex flex-column  mt-2 align-items-center">
        <h4> Are You Sure..?..</h4>
         <div className="px-4 d-flex justify-content-between mt-3">
-          <button style={{backgroundColor:"gold"}} className="px-3 py-1 rounded me-3" onClick={redirecttoLogin}>Yes</button>
-          <button style={{backgroundColor:"green"}} className="px-3 py-1 rounded " onClick={hideModal}>No</button>
+          <button style={{backgroundColor:"gold"}} className="px-3 py-1 btn rounded me-3" onClick={redirecttoLogin}>Yes</button>
+          <button style={{backgroundColor:"green"}} className="px-3 py-1 btn rounded " onClick={hideModal}>No</button>
         </div>
       </div>
     </dialog>

@@ -32,12 +32,13 @@ const LoginPage = () => {
     if (Object.keys(errors).length === 0) {
       setErrorDetails();
       const userData = (await loginApiByUserName(getUserName, getRole)).data;
-      console.log(userData);
+
+      // Checking for the data that has the same userPassword
       const userLoginDetials = userData.filter((data) => {
         return data.userPassword === getUserPassword;
       });
 
-      if (userData.length != 0) {
+      if (userLoginDetials.length != 0) {
         if (userLoginDetials[0].role) {
           nav(userLoginDetials[0].role);
         }

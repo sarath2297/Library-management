@@ -1,16 +1,12 @@
 import { useState } from "react";
 import LoginPageStyles from "./LoginPage.module.css";
-import { loginApi, loginApiByUserName } from "../services/AllApis";
-import axios from "axios";
+import {  loginApiByUserName } from "../services/AllApis";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const nav = useNavigate();
 
-  const [loginDetails, setLoginDetails] = useState({
-    userName: "",
-    password: "",
-  });
+
   const [errorDetails, setErrorDetails] = useState();
 
 
@@ -31,7 +27,6 @@ const LoginPage = () => {
     }
 
     if (Object.keys(errors).length === 0) {
-      setLoginDetails({ userName: getUserName, password: getUserPassword });
       setErrorDetails();
       console.log("Here Entering");
       console.log(getUserName,"from Here");
@@ -51,15 +46,6 @@ const LoginPage = () => {
   }
 
 
-  // const checkLogin = async () => {
- 
-  //   if(loginDetails.password && loginDetails.userName){
-  //     console.log("Here Entering");
-  //     const userData = (await loginApiByUserName(loginDetails.userName)).data;
-  //     console.log(userData);
-  //   }
-    
-  // };
 
   return (
     <div

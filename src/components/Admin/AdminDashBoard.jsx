@@ -4,21 +4,21 @@ import NameTime from '../Common/NameTime'
 import {deleteABookApi, getUserDataApi} from '../../services/AllApis'
 import { useEffect, useState } from 'react'
 
-function AdminDashBoard({displayCard}) {
+function 
+AdminDashBoard({getAllBooks,deleteData}) {
 
  const [count,setCount] = useState(0)
- const [deleteBookStatus , setDeleteBookStatus] = useState(false)
 
-//  const handleDelete = async(id) =>{
-//     const result = await deleteABookApi(id)
-//     console.log(result);
-//     if(result.status>=200 && result.status<300){
-//       setDeleteBookStatus(true)
-//     }
-//     else{
-//       alert('Something Went Wrong')
-//     }
-//   }
+ const handleDelete = async(id) =>{
+    const result = await deleteABookApi(id)
+    console.log(result);
+    if(result.status>=200 && result.status<300){
+        deleteData(id)
+    }
+    else{
+      alert('Something Went Wrong')
+    }
+  }
 
 
  useEffect(()=>{const getCount = async ()=>{
@@ -43,20 +43,28 @@ function AdminDashBoard({displayCard}) {
                     </div>
                     <table className='ms-5 mt-4' style={{width:'90%'}}>
                         <thead>
+                            
                             <tr className='border-bottom border-light'>
                                 <th>BookId</th>
                                 <th>Title</th>
                                 <th>Author</th>
                                 <th>Action</th>
+                                <th>Delete</th>
+
                             </tr>
                         </thead>
                         <tbody>
-                            <tr className='border-bottom border-light'>
-                                <td>dv</td>
-                                <td>sscdv</td>
-                                <td>xasccdf</td>
-                                <td><FontAwesomeIcon icon={faTrash} /></td>
+                        {getAllBooks.map((book)=>{
+                                return   <tr key={book.id} className='border-bottom border-light'>
+                                <td>{book.id}</td>
+                                <td>{book.title}</td>
+                                <td>{book.author}</td>
+                                <td>{book.genre}</td>
+                                <td onClick={()=>handleDelete(book.id)}>delete</td>
+
                             </tr>
+                            })}
+                           
     
                             
                         </tbody>
@@ -75,10 +83,10 @@ function AdminDashBoard({displayCard}) {
                     </div>
                     <div style={{width:'300px',height:'100px',color:'white',backgroundColor:'#4d4948', borderRadius:'20px',marginLeft:'10px',marginBottom:'20px'}}>
                     <div className='d-flex align-items-center justify-content-between px-3 py-1' >
-                            <h4>1223</h4>
+                            <h4>{getAllBooks.length}</h4>
                             <div className='d-flex align-items-center justify-content-center' style={{width:'35px',height:'35px',backgroundColor:'#f65867', borderRadius:'20px'}}><FontAwesomeIcon icon={faBook} /></div>
                         </div>
-                        <p className='mt-4 ms-3'>Borrowed Books</p>
+                        <p className='mt-4 ms-3'>Total Books Books</p>
                 </div>
                 <div style={{width:'300px',height:'100px',color:'white',backgroundColor:'#4d4948', borderRadius:'20px',marginLeft:'10px'}}>
                     <div className='d-flex align-items-center justify-content-between px-3 py-1' >

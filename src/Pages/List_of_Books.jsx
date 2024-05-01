@@ -8,13 +8,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, } from "@fortawesome/free-solid-svg-icons";
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from "react-router-dom";
-
-
+import { getUploadBookApi } from '../services/AllApis';
+import { useEffect, useState } from 'react';
 
 const dropDownLists=["Novels","Fantasy","Romance","Biography/Autobiography","Chrime Thriller","Travel","Cooking/Food","History","Encyclopedias"]
 function List_of_Books() {
 
   const navgivate = useNavigate()
+
+  // state to hold book details from backend
+  const [bookdet,setBookDet] = useState([])
+  const getBook = async() =>{
+      const response = await getUploadBookApi()        
+      // console.log(response.data);
+      setBookDet(response.data)
+  }
+
+  console.log(bookdet);
+
+  useEffect(()=>{
+      getBook()
+  },[])
 
   const backtoHome = ()=>{
     navgivate('/user')
@@ -27,7 +41,7 @@ function List_of_Books() {
       <div className={List_of_BooksStyle.main}>
         <div className={List_of_BooksStyle.head}>
                     
-            <h2>Get your Books</h2>
+            <h3 className="text-light">Get your Books</h3>
             
            <div style={{position:"relative"}}>
            <FontAwesomeIcon icon={faMagnifyingGlass} flip style={{color: "#ffffff",marginRight:'5',position:"absolute",right:"0",top:"0.5rem"}} />
@@ -75,22 +89,14 @@ function List_of_Books() {
              <div className="col-1"></div>
              <div className="col-10">
                <Row className="w-100 ">
-                  <Col sm={12} md={6} lg={3} className="mt-3">
-                      <Cards />
-                  </Col>
-                  <Col sm={12} md={6} lg={3} className="mt-3">
-                      <Cards />
-                  </Col>
-                  <Col sm={12} md={6} lg={3} className="mt-3">
-                      <Cards />
-                  </Col>
-                  <Col sm={12} md={6} lg={3} className="mt-3">
-                      <Cards />
-                 </Col>
-                 <Col sm={12} md={6} lg={3} className="mt-3">
-                      <Cards />
-                 </Col>
-                
+               {bookdet?.length>0?
+               bookdet?.map((item)=>(
+                <Col sm={12} md={6} lg={3} className="mt-3">
+                      <Cards displayCard={item}/>
+                  </Col>  ))
+          :
+          <p className='mt-5 text-warning'>No Books Uploaded Yet..</p>
+          }              
                </Row>
              </div>
              

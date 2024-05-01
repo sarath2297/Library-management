@@ -20,6 +20,7 @@
     top: 0;
     position: sticky;
     z-index: 2000;
+    padding-block: 5px;
 }
 ::-webkit-input-placeholder { /* WebKit browsers */
     color:white;

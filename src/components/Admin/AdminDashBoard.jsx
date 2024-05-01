@@ -4,7 +4,8 @@ import NameTime from '../Common/NameTime'
 import {deleteABookApi, getUserDataApi} from '../../services/AllApis'
 import { useEffect, useState } from 'react'
 
-function AdminDashBoard({getAllBooks,deleteData}) {
+function 
+AdminDashBoard({getAllBooks,deleteData}) {
 
  const [count,setCount] = useState(0)
 

@@ -11,7 +11,7 @@ const LogoutModal = forwardRef(function LogoutModal({ hideModal }, ref) {
  }
 
   return (
-    <dialog ref={ref} className="mx-auto my-5 p-4 rounded" style={{backgroundColor:'transparent'}}>
+    <dialog ref={ref} className="mx-auto my-5 p-4 rounded" >
       <div className="d-flex flex-column  mt-2 align-items-center">
        <h4> Are You Sure..?..</h4>
         <div className="px-4 d-flex justify-content-between mt-3">

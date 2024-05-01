@@ -43,12 +43,12 @@ const AddBookModal = forwardRef(function AddBookModal({hideAddBookModal}, ref) {
           <h5>Upload Image </h5>
           <input type="text" className="rounded" style={{width:"450px"}} placeholder="Enter the Genere of the book" name="imageLink"/>
         </div>
-         <div className="p-2 ">
-          <button className="px-3 py-1 rounded bg-success" >Save</button>
+        <button className="px-3 py-1 rounded bg-success">Save</button>
+         
+        </form>
+        <div className="p-2 ">
           <button className="mx-5 px-2 py-1 rounded bg-danger" onClick={hideAddBookModal} >Discard</button>
          </div>
-        </form>
-        
 
       </div>
     </dialog>

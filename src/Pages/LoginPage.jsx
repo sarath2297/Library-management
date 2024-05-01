@@ -2,7 +2,6 @@ import { useState } from "react";
 import LoginPageStyles from "./LoginPage.module.css";
 import {  loginApiByUserName } from "../services/AllApis";
 import { useNavigate } from "react-router-dom";
-import logo from '../assets/logo.png'
 
 const LoginPage = () => {
   const nav = useNavigate();

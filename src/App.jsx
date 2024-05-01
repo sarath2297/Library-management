@@ -4,6 +4,7 @@ import LoginPage from './Pages/LoginPage'
 import UserPage from './Pages/UserPage'
 import AdminPage from './Pages/AdminPage'
 import List_of_Books from './Pages/List_of_Books'
+import Register from './Pages/Register'
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='/admin' element={<AdminPage/>}/>
         <Route path='/list' element={<List_of_Books/>}/>
         <Route path="*"  element={<LoginPage/>}/>
+        <Route path="/register" element={<Register/>}/>
 
       </Routes>
     </>

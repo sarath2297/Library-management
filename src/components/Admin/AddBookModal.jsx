@@ -1,4 +1,5 @@
 import { forwardRef, useState } from "react";
+import { addBookApi } from "../../services/AllApis";
 
 const AddBookModal = forwardRef(function AddBookModal({hideAddBookModal}, ref) {
   const [bookDetails, setBookDetails] = useState({
@@ -7,6 +8,34 @@ const AddBookModal = forwardRef(function AddBookModal({hideAddBookModal}, ref) {
     genre: "",
     imageLink: "",
   });
+
+  console.log(bookDetails);
+
+  const handleClose = () => setShow(false);
+
+  const handleUpload = async()=>{
+    const {title,author,genre,imageLink} = bookDetails
+    if(!title || !author || !imageLink || !genre){
+      alert('please fill everything')
+    }
+    else{
+      const response = await addBookApi(bookDetails)
+      console.log(response);
+      if(response.status>=200 && response.status<300){
+        alert('Book details uploaded successfully')
+        setBookDetails({
+            title : '',
+            author :'',
+            image : ''
+        })
+        handleClose()
+    }
+    else{
+        console.log(response);
+        alert('Something went wrong')
+    }
+    }
+  }
 
   const saveBookDetailsHandler=(e)=>{
    e.preventDefault();
@@ -29,21 +58,21 @@ const AddBookModal = forwardRef(function AddBookModal({hideAddBookModal}, ref) {
         <form method="dialog" className="text-center  w-100" onSubmit={saveBookDetailsHandler}>
         <div>
           <h5>Enter The Title</h5>
-          <input type="text" className="rounded" style={{width:"450px"}} placeholder="Enter the title of the book" name="title"/>
+          <input type="text" className="rounded" style={{width:"450px"}} placeholder="Enter the title of the book" name="title" onChange={(e)=>setBookDetails({...bookDetails,title:e.target.value})}/>
         </div>
         <div>
           <h5>Enter The Author</h5>
-          <input type="text" className="rounded" style={{width:"450px"}} placeholder="Enter the Author of the book" name="author"/>
+          <input type="text" className="rounded" style={{width:"450px"}} placeholder="Enter the Author of the book" name="author" onChange={(e)=>setBookDetails({...bookDetails,author:e.target.value})}/>
         </div>
         <div>
           <h5>Enter The Genre </h5>
-          <input type="text" className="rounded" style={{width:"450px"}} placeholder="Enter the Genere of the book" name="genre"/>
+          <input type="text" className="rounded" style={{width:"450px"}} placeholder="Enter the Genere of the book" name="genre" onChange={(e)=>setBookDetails({...bookDetails,genre:e.target.value})}/>
         </div>
         <div>
           <h5>Upload Image </h5>
-          <input type="text" className="rounded" style={{width:"450px"}} placeholder="Enter the Genere of the book" name="imageLink"/>
+          <input type="text" className="rounded" style={{width:"450px"}} placeholder="Enter the Genere of the book" name="imageLink" onChange={(e)=>setBookDetails({...bookDetails,imageLink:e.target.value})}/>
         </div>
-        <button className="px-3 py-1 rounded bg-success">Save</button>
+        <button className="px-3 py-1 rounded bg-success" onClick={handleUpload}>Save</button>
          
         </form>
         <div className="p-2 ">

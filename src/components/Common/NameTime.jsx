@@ -35,7 +35,7 @@ function NameTime({ userName }) {
       <h2>
         Hello, <span className={admindash.admindashspan}>{userName}</span>
       </h2>
-      <h6>
+      <h6 className="text-light">
         {`${month} ${date}, ${year}`} |{" "}
         {`${day}, ${formattedHours}: ${formattedMinutes} ${period}`}{" "}
       </h6>

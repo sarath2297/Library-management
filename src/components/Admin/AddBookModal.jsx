@@ -61,19 +61,19 @@ const AddBookModal = forwardRef(function AddBookModal({hideAddBookModal}, ref) {
         <form method="dialog" className="text-center  w-100" onSubmit={saveBookDetailsHandler}>
         <div>
           <h6 className="mt-2 text-light">Enter The Title</h6>
-          <input type="text" className="rounded form-control w-75" style={{marginLeft:'70px'}} placeholder="Enter the title of the book" name="title" onChange={(e)=>setBookDetails({...bookDetails,title:e.target.value})}/>
+          <input type="text" value={bookDetails.title} className="rounded form-control w-75" style={{marginLeft:'70px'}} placeholder="Enter the title of the book" name="title" onChange={(e)=>setBookDetails({...bookDetails,title:e.target.value})}/>
         </div>
         <div>
           <h6 className="mt-2 text-light">Enter The Author</h6>
-          <input type="text" className="rounded form-control w-75" style={{marginLeft:'70px'}} placeholder="Enter the Author of the book" name="author" onChange={(e)=>setBookDetails({...bookDetails,author:e.target.value})}/>
+          <input type="text" value={bookDetails.auther} className="rounded form-control w-75" style={{marginLeft:'70px'}} placeholder="Enter the Author of the book" name="author" onChange={(e)=>setBookDetails({...bookDetails,author:e.target.value})}/>
         </div>
         <div>
           <h6 className="mt-2 text-light">Enter The Genre </h6>
-          <input type="text" className="rounded form-control w-75" style={{marginLeft:'70px'}} placeholder="Enter the Genere of the book" name="genre" onChange={(e)=>setBookDetails({...bookDetails,genre:e.target.value})}/>
+          <input type="text" value={bookDetails.genre} className="rounded form-control w-75" style={{marginLeft:'70px'}} placeholder="Enter the Genere of the book" name="genre" onChange={(e)=>setBookDetails({...bookDetails,genre:e.target.value})}/>
         </div>
         <div>
           <h6 className="mt-2 text-light">Upload Image </h6>
-          <input type="text" className="rounded form-control w-75" style={{marginLeft:'70px'}} placeholder="Enter the Genere of the book" name="imageLink" onChange={(e)=>setBookDetails({...bookDetails,imageLink:e.target.value})}/>
+          <input type="text" value={bookDetails.imageLink} className="rounded form-control w-75" style={{marginLeft:'70px'}} placeholder="Enter the Genere of the book" name="imageLink" onChange={(e)=>setBookDetails({...bookDetails,imageLink:e.target.value})}/>
         </div>
          
         </form>

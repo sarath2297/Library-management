@@ -58,9 +58,9 @@ function UserPage() {
                       <table className='ms-5 mt-4' style={{width:'90%'}}>
                           <thead>
                               <tr className='border-bottom border-light'>
-                                  <th>BookId</th>
                                   <th>Title</th>
                                   <th>Author</th>
+                                  <th>Date</th>
                                   <th>Action</th>
                               </tr>
                           </thead>

@@ -27,6 +27,19 @@ function handleAddNewBook(response){
   })
 }
 
+function deleteData(bookId){
+  setAllBooks((prev)=>{
+    const previousData=[...prev];
+    const changedData=previousData.filter((data)=>{
+          return data.id!=bookId;
+    })
+    return changedData;
+  })
+
+  // const result = await deleteABookApi(id)
+
+}
+
 console.log(getAllBooks,"Here");
 
   return (
@@ -34,7 +47,7 @@ console.log(getAllBooks,"Here");
 
       <Header/>
       <AdminNavBar handleAddNewBook={handleAddNewBook}/>
-      <AdminDashBoard getAllBooks={getAllBooks}/>
+      <AdminDashBoard getAllBooks={getAllBooks} deleteData={deleteData}/>
 
       <Footer/>
     </div>

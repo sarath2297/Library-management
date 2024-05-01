@@ -114,7 +114,7 @@ const LoginPage = () => {
               Login
             </button>
             <div className="mt-4 text-primary">
-              <h6>Are you a new user?.. <a href="" className="text-warning">Register Now</a></h6>
+              <h6>Are you a new user?.. <a href="/register" className="text-warning">Register Now</a></h6>
             </div>
           </form>
         </div>

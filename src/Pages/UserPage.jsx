@@ -5,8 +5,16 @@ import { faBook, faUserGroup , faTrash,faArrowRight} from '@fortawesome/free-sol
 import NameTime from "../components/Common/NameTime"
 import Button from 'react-bootstrap/Button';
 import List_of_BooksStyle from "./List_of_Books.module.css";
+import { useNavigate } from "react-router-dom"
 
 function UserPage() {
+
+    const searchBooks = useNavigate()
+
+    const gotoLibrary = ()=>{
+        searchBooks('/list')
+    }
+
   return (
     <>
         <Header/>
@@ -14,7 +22,7 @@ function UserPage() {
           <div className="ms-3 ">
           <div>
           <NameTime userName="User"/>
-          <Button variant="warning" className='mt-2'>Go to Library <FontAwesomeIcon icon={faArrowRight} fade style={{color: "#ffffff",}} /></Button>
+          <Button variant="warning" className='mt-2' onClick={gotoLibrary}>Go to Library <FontAwesomeIcon icon={faArrowRight} fade style={{color: "#ffffff",}} /></Button>
           </div>
   
           <div className='row mt-5 ms-3'>

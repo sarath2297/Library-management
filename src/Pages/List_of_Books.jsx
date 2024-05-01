@@ -6,12 +6,21 @@ import Cards from "../components/Cards";
 import { Col, Row } from "react-bootstrap";
 import Dropdown from 'react-bootstrap/Dropdown';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass,faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, } from "@fortawesome/free-solid-svg-icons";
+import Button from 'react-bootstrap/Button';
+import { useNavigate } from "react-router-dom";
 
 
 
 const dropDownLists=["Novels","Fantasy","Romance","Biography/Autobiography","Chrime Thriller","Travel","Cooking/Food","History","Encyclopedias"]
 function List_of_Books() {
+
+  const toHome = useNavigate()
+
+  const backtoHome = ()=>{
+    toHome('/user')
+  }
+
   return (
     <>
       <Header />
@@ -56,6 +65,8 @@ function List_of_Books() {
                 
               </Dropdown.Menu>
             </Dropdown>
+
+            <Button variant="warning" className='ms-2' onClick={backtoHome}>Back to Home</Button>
           
         </div>
 
@@ -84,9 +95,6 @@ function List_of_Books() {
                 
                </Row>
              </div>
-           {/*   <div className="col-1 arrow">
-             <FontAwesomeIcon icon={faArrowUp} beat size="lg" style={{color: "#ffffff",}} />
-             </div> */}
              
         </div>
 

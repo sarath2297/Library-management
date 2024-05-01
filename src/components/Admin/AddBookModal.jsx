@@ -23,29 +23,29 @@ const AddBookModal = forwardRef(function AddBookModal({hideAddBookModal}, ref) {
   console.log(bookDetails);
 
   return (
-    <dialog ref={ref} className="mx-auto mt-5 p-4 w-50 rounded">
-      <div className="d-flex flex-column align-items-center justify-content-center">
+    <dialog ref={ref} className="mx-auto mt-5 p-4 w-50 rounded" style={{backgroundColor:"white"}}>
+      <div className="d-flex flex-column align-items-center justify-content-center rounded" style={{backgroundColor:"grey"}}>
 
-        <form method="dialog" className="text-center mt-2" onSubmit={saveBookDetailsHandler}>
+        <form method="dialog" className="text-center  w-100" onSubmit={saveBookDetailsHandler}>
         <div>
           <h5>Enter The Title</h5>
-          <input type="text" placeholder="Enter the title of the book" name="title"/>
+          <input type="text" className="rounded" style={{width:"450px"}} placeholder="Enter the title of the book" name="title"/>
         </div>
         <div>
           <h5>Enter The Author</h5>
-          <input type="text" placeholder="Enter the Author of the book" name="author"/>
+          <input type="text" className="rounded" style={{width:"450px"}} placeholder="Enter the Author of the book" name="author"/>
         </div>
         <div>
           <h5>Enter The Genre </h5>
-          <input type="text" placeholder="Enter the Genere of the book" name="genre"/>
+          <input type="text" className="rounded" style={{width:"450px"}} placeholder="Enter the Genere of the book" name="genre"/>
         </div>
         <div>
           <h5>Upload Image </h5>
-          <input type="text" placeholder="Enter the Genere of the book" name="imageLink"/>
+          <input type="text" className="rounded" style={{width:"450px"}} placeholder="Enter the Genere of the book" name="imageLink"/>
         </div>
-         <div className="p-2 border border-primary border-right-0 ">
+         <div className="p-2 ">
           <button className="px-3 py-1 rounded bg-success" >Save</button>
-          <button className="mx-3 px-2 py-1 rounded bg-danger" onClick={hideAddBookModal} >Discard</button>
+          <button className="mx-5 px-2 py-1 rounded bg-danger" onClick={hideAddBookModal} >Discard</button>
          </div>
         </form>
         

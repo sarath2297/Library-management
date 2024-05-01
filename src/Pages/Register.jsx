@@ -1,12 +1,21 @@
+import { useNavigate } from "react-router-dom";
 import Input from "../components/Common/Input";
 import RegisterpageStyle from "./Register.module.css";
 
 function Register() {
+
+  const gotoLoginpage = useNavigate()
+
+  const register = ()=>{
+    gotoLoginpage('/')
+  }
+  
+
   return (
     <>
       <div className={`${RegisterpageStyle.registerStyle}`}>
         <div className={`${RegisterpageStyle.main} `}>
-          <h2>Library MemberShip Registration Form</h2>
+          <h2 className="mt-3">Library MemberShip Registration Form</h2>
 
           <div>
             <h6>Name</h6>
@@ -49,14 +58,8 @@ function Register() {
               </div>
             </div>
           </div>
-          
-
-        <div className="pt-4 pb-2 d-flex align-items-center justify-content-center">
-        <input type="checkbox" />
-        <p className="m-0">Accept</p>
-        </div>
-          <button className="px-2 py-1 rounded">Register here</button> 
-          <div className="p-4">
+          <button className="px-2 py-1 rounded mt-3" onClick={register}>Register here</button> 
+          <div className="p-4 text-warning">
             Duration of membership From (date of membership approval) to (date
             of membership renewal). Club memberships are renewed annually.
           </div>

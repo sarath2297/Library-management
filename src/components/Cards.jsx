@@ -12,7 +12,7 @@ function Cards() {
                <p>Auther :</p>
                <p>Genre :</p>
               </Card.Text>
-              <Button variant="primary" className='me-2' >Take Book</Button>
+              <Button variant="primary" className='me-2'>Take Book</Button>
               <Button variant="warning" className='ms-2'>Wishlist</Button>
             </Card.Body>
           </Card>

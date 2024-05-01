@@ -12,7 +12,7 @@ function AdminDashBoard() {
 
             <div className='row mb-5 mt-5'>
                 <div className='col-md-7'>
-                <div style={{height:'350px',width:'100%', color:'white',backgroundColor:'#4d4948', borderRadius:'20px', marginBottom:'30px'}}>
+                <div style={{height:'350px',width:'100%', color:'white',backgroundColor:'#4d4948', borderRadius:'20px', marginBottom:'30px',overflowY:'scroll'}}>
                     <div className='me-3 d-flex align-items-center justify-content-between'>
                         <h4 className='ms-3 pt-3'>Book List</h4>
                     </div>

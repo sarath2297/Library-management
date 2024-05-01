@@ -18,7 +18,7 @@ function UserPage() {
                               <h4>1223</h4>
                               <div className='d-flex align-items-center justify-content-center' style={{width:'35px',height:'35px',backgroundColor:'orange', borderRadius:'20px'}}><FontAwesomeIcon icon={faUserGroup} /></div>
                           </div>
-                          <p className='mt-4 ms-3'>Total Visitors</p>
+                          <p className='mt-4 ms-3'>Total Books</p>
                       </div>
                       <div style={{width:'300px',height:'100px',color:'white',backgroundColor:'#4d4948', borderRadius:'20px',marginLeft:'10px',marginBottom:'20px'}}>
                       <div className='d-flex align-items-center justify-content-between px-3 py-1' >
@@ -37,7 +37,7 @@ function UserPage() {
                   </div>
                   <div className="col-md-1"></div>
                   <div className='col-md-7'>
-                  <div style={{height:'350px',width:'100%', color:'white',backgroundColor:'#4d4948', borderRadius:'20px', marginBottom:'30px'}}>
+                  <div style={{height:'350px',width:'100%', color:'white',backgroundColor:'#4d4948', borderRadius:'20px', marginBottom:'30px',overflowY:'scroll'}}>
                       <div className='me-3 d-flex align-items-center justify-content-between'>
                           <h4 className='ms-3 pt-3'>Book List</h4>
                       </div>

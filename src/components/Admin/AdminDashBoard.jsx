@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBook, faUserGroup , faTrash} from '@fortawesome/free-solid-svg-icons'
 import NameTime from '../Common/NameTime'
-import {getUserDataApi} from '../../services/AllApis'
+import {getUploadBookApi, getUserDataApi} from '../../services/AllApis'
 import { useEffect, useState } from 'react'
 
-function AdminDashBoard() {
+function AdminDashBoard({getAllBooks}) {
 
  const [count,setCount] = useState(0)
 
@@ -13,7 +13,8 @@ function AdminDashBoard() {
     console.log(response.data);
  } */
 
- useEffect( ()=>{const getCount = async ()=>{
+
+ useEffect(()=>{const getCount = async ()=>{
     const response = await getUserDataApi(`user`)
     console.log(response.data.length);
     setCount(response.data.length)
@@ -43,12 +44,15 @@ function AdminDashBoard() {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr className='border-bottom border-light'>
-                                <td>dv</td>
-                                <td>sscdv</td>
-                                <td>xasccdf</td>
+                            {getAllBooks.map((book,index)=>{
+                                return <tr key={index} className='border-bottom border-light'>
+                                <td>{book.title}</td>
+                                <td>{book.author}</td>
+                                <td>{book.genre}</td>
                                 <td><FontAwesomeIcon icon={faTrash}/></td>
                             </tr>
+                            })}
+                            
                         </tbody>
                     </table>
                     

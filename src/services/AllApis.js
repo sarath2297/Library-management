@@ -12,7 +12,6 @@ export const loginApiByUserName=async(userName,role)=>{
 
 export const getUserDataApi=async(role)=>{
    return await commonAPI('GET',`${baseURL}/login?role=${role}`,'')
-
 }
 
 //api for adding book
@@ -24,5 +23,7 @@ export const addBookApi = async(reqBody) =>{
 export const getUploadBookApi = async() => {
    return await commonAPI('GET', `${baseURL}/books`,'')
 }
+
+
 
 

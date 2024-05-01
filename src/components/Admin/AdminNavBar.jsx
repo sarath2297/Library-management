@@ -6,7 +6,7 @@ import { useRef} from "react";
 import LogoutModal from "../LogoutModal";
 import AddBookModal from "./AddBookModal";
 
-const AdminNavBar = () => {
+const AdminNavBar = ({handleAddNewBook}) => {
   const modal = useRef();
 
   const addBookModalRef=useRef();
@@ -56,7 +56,7 @@ const AdminNavBar = () => {
           </div>
         </div>
         <LogoutModal ref={modal}  hideModal={hideModal}/>
-        <AddBookModal ref={addBookModalRef} hideAddBookModal={hideAddBookModal}/>
+        <AddBookModal ref={addBookModalRef} hideAddBookModal={hideAddBookModal} handleAddNewBook={handleAddNewBook}/>
       </div>
 
     

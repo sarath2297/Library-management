@@ -1,8 +1,10 @@
 import { forwardRef, useState } from "react";
 import { addBookApi } from "../../services/AllApis";
 
-const AddBookModal = forwardRef(function AddBookModal({hideAddBookModal}, ref) {
-  const [show, setShow] = useState(false);
+const AddBookModal = forwardRef(function AddBookModal({hideAddBookModal,handleAddNewBook}, ref) {
+
+
+
   const [bookDetails, setBookDetails] = useState({
     title: "",
     author: "",
@@ -10,19 +12,17 @@ const AddBookModal = forwardRef(function AddBookModal({hideAddBookModal}, ref) {
     imageLink: "",
   });
 
-  console.log(bookDetails);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   const handleUpload = async()=>{
+    console.log(bookDetails);
   const {title,author,genre,imageLink} = bookDetails
   if(!title || !author || !imageLink || !genre){
     alert('please fill everything')
   }
   else{
     const response = await addBookApi(bookDetails)
-    console.log(response);
+    console.log(response.data);
+    handleAddNewBook(response.data)
     if(response.status>=200 && response.status<300){
       alert('Book details uploaded successfully')
       setBookDetails({
@@ -40,25 +40,14 @@ const AddBookModal = forwardRef(function AddBookModal({hideAddBookModal}, ref) {
   }
 }
 
-  const saveBookDetailsHandler=(e)=>{
-   e.preventDefault();
-    const getForm=new FormData(e.target);
-    const title=getForm.get("title")
-    const author=getForm.get("author")
-    const genre=getForm.get("genre")
-    const imageLink=getForm.get("imageLink")
-    
-    setBookDetails({
-        title,author,genre,imageLink
-    })
-  }
+
   console.log(bookDetails);
 
   return (
     <dialog ref={ref} className="mx-auto mt-5 p-4 w-50 rounded-3" style={{backgroundColor:"white"}}>
       <div className="d-flex flex-column align-items-center justify-content-center rounded-3" style={{backgroundColor:"black",opacity:'0.9'}}>
 
-        <form method="dialog" className="text-center  w-100" onSubmit={saveBookDetailsHandler}>
+        <form method="dialog" className="text-center  w-100">
         <div>
           <h6 className="mt-2 text-light">Enter The Title</h6>
           <input type="text" className="rounded form-control w-75" style={{marginLeft:'70px'}} placeholder="Enter the title of the book" name="title" onChange={(e)=>setBookDetails({...bookDetails,title:e.target.value})}/>

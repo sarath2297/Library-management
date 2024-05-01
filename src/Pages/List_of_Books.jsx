@@ -1,4 +1,3 @@
-import React from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import List_of_BooksStyle from "./List_of_Books.module.css";

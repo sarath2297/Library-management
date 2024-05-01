@@ -1,10 +1,6 @@
-import React from 'react'
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../assets/logo.png'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
 import avatar from "../assets/avatar.jpg";
 import { useRef} from "react";
 import LogoutModal from './LogoutModal';

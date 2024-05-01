@@ -1,5 +1,4 @@
 import { forwardRef, useState } from "react";
-import { addBookApi } from "../../services/AllApis";
 
 const AddBookModal = forwardRef(function AddBookModal({hideAddBookModal}, ref) {
   const [bookDetails, setBookDetails] = useState({
@@ -11,31 +10,30 @@ const AddBookModal = forwardRef(function AddBookModal({hideAddBookModal}, ref) {
 
   console.log(bookDetails);
 
-  const handleClose = () => setShow(false);
 
-  const handleUpload = async()=>{
-    const {title,author,genre,imageLink} = bookDetails
-    if(!title || !author || !imageLink || !genre){
-      alert('please fill everything')
-    }
-    else{
-      const response = await addBookApi(bookDetails)
-      console.log(response);
-      if(response.status>=200 && response.status<300){
-        alert('Book details uploaded successfully')
-        setBookDetails({
-            title : '',
-            author :'',
-            image : ''
-        })
-        handleClose()
-    }
-    else{
-        console.log(response);
-        alert('Something went wrong')
-    }
-    }
-  }
+  // const handleUpload = async()=>{
+  //   const {title,author,genre,imageLink} = bookDetails
+  //   if(!title || !author || !imageLink || !genre){
+  //     alert('please fill everything')
+  //   }
+  //   else{
+  //     // const response = await addBookApi(bookDetails)
+  //     console.log(response);
+  //     if(response.status>=200 && response.status<300){
+  //       alert('Book details uploaded successfully')
+  //       setBookDetails({
+  //           title : '',
+  //           author :'',
+  //           image : ''
+  //       })
+  //       handleClose()
+  //   }
+  //   else{
+  //       console.log(response);
+  //       alert('Something went wrong')
+  //   }
+  //   }
+  // }
 
   const saveBookDetailsHandler=(e)=>{
    e.preventDefault();
@@ -72,7 +70,7 @@ const AddBookModal = forwardRef(function AddBookModal({hideAddBookModal}, ref) {
           <h5>Upload Image </h5>
           <input type="text" className="rounded" style={{width:"450px"}} placeholder="Enter the Genere of the book" name="imageLink" onChange={(e)=>setBookDetails({...bookDetails,imageLink:e.target.value})}/>
         </div>
-        <button className="px-3 py-1 rounded bg-success" onClick={handleUpload}>Save</button>
+        <button className="px-3 py-1 rounded bg-success">Save</button>
          
         </form>
         <div className="p-2 ">

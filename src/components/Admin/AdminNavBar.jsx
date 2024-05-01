@@ -1,6 +1,5 @@
 import { faBell, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import avatar from "../../assets/avatar.jpg";
 
 import AdminNavrBarStyle from "./AdminNavBar.module.css";
 import { useRef} from "react";
@@ -12,9 +11,6 @@ const AdminNavBar = () => {
 
   const addBookModalRef=useRef();
 
-  const showModalHanlder = () => {
-    modal.current.showModal();
-  };
 
   const hideModal=()=>{
     modal.current.close();

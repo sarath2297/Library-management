@@ -1,8 +1,25 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBook, faUserGroup , faTrash} from '@fortawesome/free-solid-svg-icons'
 import NameTime from '../Common/NameTime'
+import {getUserDataApi} from '../../services/AllApis'
+import { useEffect, useState } from 'react'
 
 function AdminDashBoard() {
+
+ const [count,setCount] = useState(0)
+
+ /* const getCount = async (usre)=>{
+    const response = await getUserDataApi()
+    console.log(response.data);
+ } */
+
+ useEffect( ()=>{const getCount = async ()=>{
+    const response = await getUserDataApi(`user`)
+    console.log(response.data.length);
+    setCount(response.data.length)
+ }
+ getCount()},[]
+)
     
   return (
     <>
@@ -41,10 +58,10 @@ function AdminDashBoard() {
                 <div className='col-md-3'>
                 <div  style={{width:'300px',height:'100px',color:'white',backgroundColor:'#4d4948', borderRadius:'20px',marginLeft:'10px',marginBottom:'20px'}}>
                         <div className='d-flex align-items-center justify-content-between px-3 py-1' >
-                            <h4>1223</h4>
+                            <h4>{count}</h4>
                             <div className='d-flex align-items-center justify-content-center' style={{width:'35px',height:'35px',backgroundColor:'#f65867', borderRadius:'20px'}}><FontAwesomeIcon icon={faUserGroup} /></div>
                         </div>
-                        <p className='mt-4 ms-3'>Total Visitors</p>
+                        <p className='mt-4 ms-3'>Total Users</p>
                     </div>
                     <div style={{width:'300px',height:'100px',color:'white',backgroundColor:'#4d4948', borderRadius:'20px',marginLeft:'10px',marginBottom:'20px'}}>
                     <div className='d-flex align-items-center justify-content-between px-3 py-1' >

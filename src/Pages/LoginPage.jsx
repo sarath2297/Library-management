@@ -28,6 +28,10 @@ const LoginPage = () => {
       console.log("UserPassword Cannot Be Empty");
       errors.userPassword = "UserPassword Cannot Be Empty";
     }
+    if(!getRole){
+      console.log("Please Select a Role");
+      errors.userRole = "Please Select a Role";
+    }
 
     if (Object.keys(errors).length === 0) {
       setErrorDetails();
@@ -121,6 +125,7 @@ const LoginPage = () => {
                 Admin <input type="radio" name="role" value="admin" />
               </h5>
             </div>
+            {<p className="text-danger">{errorDetails?.userRole}</p>}
             <button
               className="px-4 py-1 bg-warning rounded mt-3"
               // onClick={checkLogin}

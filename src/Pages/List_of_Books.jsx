@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, } from "@fortawesome/free-solid-svg-icons";
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from "react-router-dom";
-import { getUploadBookApi } from '../services/AllApis';
+import { getUploadedBookApi } from '../services/AllApis';
 import { useEffect, useState } from 'react';
 
 const dropDownLists=["Novels","Fantasy","Romance","Biography/Autobiography","Chrime Thriller","Travel","Cooking/Food","History","Encyclopedias"]
@@ -16,15 +16,27 @@ function List_of_Books() {
 
   const navgivate = useNavigate()
 
-  // state to hold book details from backend
-  const [bookdet,setBookDet] = useState([])
+
+  const [availableBooksData,setAvailableBooksData] = useState([])
   const getBook = async() =>{
-      const response = await getUploadBookApi()        
+    try{
+      const response = await getUploadedBookApi();
+          console.log("hERE");
+      if(response.status!=200 ){
+        throw new Error("SomeThing Went Wrong")
+      } 
+      console.log("Here below throw");
+      setAvailableBooksData(response.data)
+
+    }
+    catch(error){
+      console.log(error);
+          alert(error);
+    }
       // console.log(response.data);
-      setBookDet(response.data)
   }
 
-  console.log(bookdet);
+  console.log(availableBooksData);
 
   useEffect(()=>{
       getBook()
@@ -82,15 +94,18 @@ function List_of_Books() {
           
         </div>
 
+
+
+
         <div className="row" style={{paddingInline:"10px" , paddingBottom:"10px"}}>
-           <div className="row ms-5 mt-3">
+           <div className="row">
            <h4 className="text-light">Category Name</h4>
            </div>
              <div className="col-1"></div>
              <div className="col-10">
                <Row className="w-100 ">
-               {bookdet?.length>0?
-               bookdet?.map((item)=>(
+               {availableBooksData?.length>0?
+               availableBooksData.map((item)=>(
                 <Col sm={12} md={6} lg={3} className="mt-3">
                       <Cards displayCard={item}/>
                   </Col>  ))
@@ -98,6 +113,7 @@ function List_of_Books() {
           <p className='mt-5 text-warning'>No Books Uploaded Yet..</p>
           }              
                </Row>
+           
              </div>
              
         </div>

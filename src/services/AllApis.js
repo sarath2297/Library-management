@@ -20,7 +20,7 @@ export const addBookApi = async(reqBody) =>{
 }
 
 //api to get uploaded books
-export const getUploadBookApi = async() => {
+export const getUploadedBookApi = async() => {
    return await commonAPI('GET', `${baseURL}/books`,'')
 }
 
@@ -31,7 +31,7 @@ export const addUserBookApi = async(reqBody) =>{
 }
 
 //api to delete a book
-export const deleteABookApi = async(id) =>{
+export const deleteBookApi = async(id) =>{
    return await commonAPI('DELETE',`${baseURL}/books/${id}`,{})
 }
 

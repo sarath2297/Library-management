@@ -112,6 +112,7 @@ const AddBookModal = forwardRef(function AddBookModal(
               } id="genreDropdown" className="form-control w-75 rounded" style={{ marginLeft: "70px" }}>
               <option value="" selected disabled>Select One</option>
               <option value="Novels" >Novels</option>
+              <option value="Novels" >Fiction</option>
               <option value="Fantasy">Fantasy</option>
               <option value="Romance">Romance</option>
               <option value="Biography/Autobiography">Biography/Autobiography</option>
@@ -129,7 +130,7 @@ const AddBookModal = forwardRef(function AddBookModal(
               value={bookDetails.imageLink}
               className="rounded form-control w-75"
               style={{ marginLeft: "70px" }}
-              placeholder="Enter the Genere of the book"
+              placeholder="Upload Image of the book"
               name="imageLink"
               onChange={(e) =>
                 setBookDetails({ ...bookDetails, imageLink: e.target.value })

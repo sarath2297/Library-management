@@ -18,6 +18,9 @@ function List_of_Books() {
 
 
   const [availableBooksData,setAvailableBooksData] = useState([])
+
+  const[filteredbook,setFilteredBooks]=useState(availableBooksData);
+
   const getBook = async() =>{
     try{
       const response = await getUploadedBookApi();
@@ -26,7 +29,9 @@ function List_of_Books() {
         throw new Error("SomeThing Went Wrong")
       } 
       console.log("Here below throw");
-      setAvailableBooksData(response.data)
+      setAvailableBooksData(response.data);
+      setFilteredBooks(response.data)
+
 
     }
     catch(error){
@@ -36,16 +41,27 @@ function List_of_Books() {
       // console.log(response.data);
   }
 
-  console.log(availableBooksData);
+
 
   useEffect(()=>{
-      getBook()
+      getBook();
   },[])
+ 
+  console.log(availableBooksData,"availableBooksData");
+  console.log(filteredbook,"filteredbook");
 
   const backtoHome = ()=>{
     navgivate('/user')
   }
 
+  const getBookGenere=(e)=>{
+       
+        setFilteredBooks((prev)=>{
+            return availableBooksData.filter((prevBook)=>{
+              return prevBook.genre==e.target.value
+            })
+        })
+  } 
   return (
     <>
       <Header />
@@ -75,20 +91,20 @@ function List_of_Books() {
               }}
             />
            </div>
+           <select  onChange={getBookGenere} >
+              <option value="" selected disabled>Select One</option>
+              <option value="Novels" >Novels</option>
+              <option value="Fiction" >Fiction</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Romance">Romance</option>
+              <option value="Biography/Autobiography">Biography/Autobiography</option>
+              <option value="Chrime Thriller">Chrime Thriller</option>
+              <option value="Travel">Travel</option>
+              <option value="Cooking/Food">Cooking/Food</option>
+              <option value="History">History</option>
+              <option value="Encyclopedias">Encyclopedias</option>
+            </select>
           
-          
-            <Dropdown>
-              <Dropdown.Toggle variant="transparent" id="dropdown-basic" style={{color:'white', width:'150px'}}>
-              Genre
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                {dropDownLists.map((dropDownItem,index)=>{
-                  return( <Dropdown.Item href="#/action-2" key={index}>{dropDownItem} </Dropdown.Item>)
-                })}
-                
-              </Dropdown.Menu>
-            </Dropdown>
 
             <Button variant="warning" className='ms-2' onClick={backtoHome}>Back to Home</Button>
           
@@ -105,7 +121,7 @@ function List_of_Books() {
              <div className="col-10">
                <Row className="w-100 ">
                {availableBooksData?.length>0?
-               availableBooksData.map((item)=>(
+               filteredbook.map((item)=>(
                 <Col sm={12} md={6} lg={3} className="mt-3">
                       <Cards displayCard={item}/>
                   </Col>  ))

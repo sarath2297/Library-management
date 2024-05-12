@@ -34,7 +34,13 @@ export const addUserBookApi = async(reqBody) =>{
 export const deleteBookApi = async(id) =>{
    return await commonAPI('DELETE',`${baseURL}/books/${id}`,{})
 }
+// Api to get the selected Book Of the User
+export const getUserSelectedBooks=async(userId)=>{
+   return await commonAPI('GET',`${baseURL}/userBookList?userId=${userId}`,'')
+}
 
-
-
+// Api to Return the bbook taken by ths user
+export const returnUserBook=async(bookId)=>{
+   return await commonAPI('DELETE',`${baseURL}/userBookList/${bookId}`,{})
+}
 

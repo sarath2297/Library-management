@@ -91,18 +91,18 @@ function List_of_Books() {
               }}
             />
            </div>
-           <select  onChange={getBookGenere} >
+           <select  onChange={getBookGenere} style={{width:'250px', backgroundColor:'transparent'}} className="form-control">
               <option value="" selected disabled>Select One</option>
-              <option value="Novels" >Novels</option>
-              <option value="Fiction" >Fiction</option>
-              <option value="Fantasy">Fantasy</option>
-              <option value="Romance">Romance</option>
-              <option value="Biography/Autobiography">Biography/Autobiography</option>
-              <option value="Chrime Thriller">Chrime Thriller</option>
-              <option value="Travel">Travel</option>
-              <option value="Cooking/Food">Cooking/Food</option>
-              <option value="History">History</option>
-              <option value="Encyclopedias">Encyclopedias</option>
+              <option value="Novels" style={{backgroundColor:'gray'}}>Novels</option>
+              <option value="Fiction" style={{backgroundColor:'white'}}>Fiction</option>
+              <option value="Fantasy" style={{backgroundColor:'gray'}}>Fantasy</option>
+              <option value="Romance" style={{backgroundColor:'white'}}>Romance</option>
+              <option value="Biography/Autobiography" style={{backgroundColor:'gray'}}>Biography/Autobiography</option>
+              <option value="Chrime Thriller" style={{backgroundColor:'white'}}>Chrime Thriller</option>
+              <option value="Travel" style={{backgroundColor:'gray'}}>Travel</option>
+              <option value="Cooking/Food" style={{backgroundColor:'white'}}>Cooking/Food</option>
+              <option value="History" style={{backgroundColor:'gray'}}>History</option>
+              <option value="Encyclopedias" style={{backgroundColor:'white'}}>Encyclopedias</option>
             </select>
           
 

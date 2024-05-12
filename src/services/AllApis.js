@@ -43,4 +43,13 @@ export const getUserSelectedBooks=async(userId)=>{
 export const returnUserBook=async(bookId)=>{
    return await commonAPI('DELETE',`${baseURL}/userBookList/${bookId}`,{})
 }
+ 
+// Api for adding user wishlist
+export const adduserWishlistApi = async(reqBody) =>{
+   return await commonAPI('POST',`${baseURL}/userWishlist`,reqBody)
+}
 
+//Api for gettin wishlist data
+export const getUserWishlistApi = async(userId) =>{
+   return await commonAPI('GET',`${baseURL}/userWishlist?userId=${userId}`,'')
+}

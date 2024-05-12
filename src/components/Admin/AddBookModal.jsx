@@ -17,6 +17,7 @@ const AddBookModal = forwardRef(function AddBookModal(
     "History",
     "Encyclopedias",
   ];
+  
 
   const [bookDetails, setBookDetails] = useState({
     title: "",
@@ -44,6 +45,7 @@ const AddBookModal = forwardRef(function AddBookModal(
           genre: "",
         });
         hideAddBookModal();
+        dropdown.selectedIndex = 0;
       } else {
         alert("Something went wrong");
       }
@@ -51,6 +53,17 @@ const AddBookModal = forwardRef(function AddBookModal(
   };
 
   console.log(bookDetails);
+  const dropdown = document.getElementById("genreDropdown")
+  const reset = ()=>{
+    hideAddBookModal();
+    setBookDetails({
+      title: "",
+      author: "",
+      imageLink: "",
+      genre: "",
+    });
+    dropdown.selectedIndex = 0;
+  }
 
   return (
     <dialog
@@ -67,7 +80,7 @@ const AddBookModal = forwardRef(function AddBookModal(
             <h6 className="mt-2 text-light">Enter The Title</h6>
             <input
               type="text"
-              value={bookDetails.title}
+              value={bookDetails.title || ''}
               className="rounded form-control w-75"
               style={{ marginLeft: "70px" }}
               placeholder="Enter the title of the book"
@@ -81,6 +94,7 @@ const AddBookModal = forwardRef(function AddBookModal(
             <h6 className="mt-2 text-light">Enter The Author</h6>
             <input
               type="text"
+              autocomplete="off"
               value={bookDetails.author}
               className="rounded form-control w-75"
               style={{ marginLeft: "70px" }}
@@ -92,19 +106,21 @@ const AddBookModal = forwardRef(function AddBookModal(
             />
           </div>
           <div>
-            <h6 className="mt-2 text-light">Enter The Genre </h6>
-           
-            <input
-              type="text"
-              value={bookDetails.genre}
-              className="rounded form-control w-75"
-              style={{ marginLeft: "70px" }}
-              placeholder="Enter the Genere of the book"
-              name="genre"
-              onChange={(e) =>
-                setBookDetails({ ...bookDetails, genre: e.target.value })
-              }
-            />
+            <h6 className="mt-2 text-light" style={{position:'relative'}}>Enter The Genre </h6>
+            <select value={bookDetails.genre} onChange={(e) =>
+              setBookDetails({ ...bookDetails, genre: e.target.value })
+              } id="genreDropdown" className="form-control w-75 rounded" style={{ marginLeft: "70px" }}>
+              <option value="" selected disabled>Select One</option>
+              <option value="Novels" >Novels</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Romance">Romance</option>
+              <option value="Biography/Autobiography">Biography/Autobiography</option>
+              <option value="Chrime Thriller">Chrime Thriller</option>
+              <option value="Travel">Travel</option>
+              <option value="Cooking/Food">Cooking/Food</option>
+              <option value="History">History</option>
+              <option value="Encyclopedias">Encyclopedias</option>
+            </select>
           </div>
           <div>
             <h6 className="mt-2 text-light">Upload Image </h6>
@@ -124,7 +140,7 @@ const AddBookModal = forwardRef(function AddBookModal(
         <div className="p-2 ms-5 my-2">
           <button
             className="px-3 py-1 rounded btn bg-danger text-light"
-            onClick={hideAddBookModal}
+            onClick={reset}
           >
             Discard
           </button>

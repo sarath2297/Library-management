@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 import List_of_BooksStyle from "./List_of_Books.module.css";
 import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { getUserSelectedBooks, returnUserBook } from "../services/AllApis"
+import { getUserWishlistApi, getUserSelectedBooks, returnUserBook } from "../services/AllApis"
 
 function UserPage() {
 
@@ -34,6 +34,23 @@ function UserPage() {
               }
           }
           getUserBooks();
+         
+    },[userId])
+    
+    // for wishlist count
+    const[wishlistCount,setWishlistCount] = useState(0)
+    useEffect(()=>{
+        const userWishlistCount = async() =>{
+            try{
+                const count = await getUserWishlistApi(userId)
+                 setWishlistCount(count.data?.length) 
+               
+            }
+            catch(error){
+                console.log(error);
+            }
+        }
+        userWishlistCount();
     },[userId])
 
 
@@ -76,14 +93,14 @@ function UserPage() {
                       </div>
                       <div style={{width:'300px',height:'100px',color:'white',backgroundColor:'#4d4948', borderRadius:'20px',marginLeft:'10px',marginBottom:'20px'}}>
                       <div className='d-flex align-items-center justify-content-between px-3 py-1' >
-                              <h4>1223</h4>
+                              <h4>{userbooks.length}</h4>
                               <div className='d-flex align-items-center justify-content-center' style={{width:'35px',height:'35px',backgroundColor:'orange', borderRadius:'20px'}}><FontAwesomeIcon icon={faBook} /></div>
                           </div>
                           <p className='mt-4 ms-3'>Borrowed Books</p>
                   </div>
                   <div style={{width:'300px',height:'100px',color:'white',backgroundColor:'#4d4948', borderRadius:'20px',marginLeft:'10px'}}>
                       <div className='d-flex align-items-center justify-content-between px-3 py-1' >
-                              <h4>1223</h4>
+                              <h4>{wishlistCount}</h4>
                               <div className='d-flex align-items-center justify-content-center' style={{width:'35px',height:'35px',backgroundColor:'orange', borderRadius:'20px'}}><FontAwesomeIcon icon={faBook} /></div>
                           </div>
                           <p className='mt-4 ms-3'>Wishlested Books</p>

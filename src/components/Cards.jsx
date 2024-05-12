@@ -1,6 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import {addUserBookApi} from '../services/AllApis'
+import {addUserBookApi, adduserWishlistApi, } from '../services/AllApis'
+
 
 function Cards({displayCard}) {
 
@@ -22,9 +23,19 @@ function Cards({displayCard}) {
     console.log(response);
   } 
 
-  // console.log("book",displaybook);
-  // console.log(displaybookdet);
- /*  console.log(displayCard.title); */
+  //api for wishlist
+  const userWishlistHistory = async () =>{
+    let title = displayCard?.title
+    let userId = localStorage.getItem(`userId`)
+    let reqBody = {
+      title,
+      userId
+    }
+    const response = await adduserWishlistApi(reqBody)
+    console.log(response);
+  }
+
+ 
   
   return (
     <div>
@@ -37,7 +48,7 @@ function Cards({displayCard}) {
                <p>Genre : {displayCard?.genre}</p>
               </Card.Text>
               <Button variant="primary" className='me-2' onClick={userBookHistory}>Take Book</Button>
-              <Button variant="warning" className='ms-2'>Wishlist</Button>
+              <Button variant="warning" className='ms-2' onClick={userWishlistHistory}>Wishlist</Button>
             </Card.Body>
           </Card> 
     </div>

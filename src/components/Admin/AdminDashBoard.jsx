@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBook,
@@ -7,11 +6,8 @@ import {
   faTrash,
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
-
-
 import LoggedInUserInfoTimeComponent from "../Common/NameTime";
 import { deleteBookApi, getUserDataApi } from "../../services/AllApis";
-
 import AdminDashBoardStyles from "./AdminDashBoard.module.css";
 
 import Card from "../Common/Card";

@@ -93,8 +93,22 @@ const AddBookModal = forwardRef(function AddBookModal(
           </div>
           <div>
             <h6 className="mt-2 text-light">Enter The Genre </h6>
-
-            <input
+            <select name="cars" id="cars" className="form-control" placeholder="Select a Category"> 
+             <option value="volvo">Volvo</option>
+              <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="volvo">Volvo</option>
+              <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="volvo">Volvo</option>
+              <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="volvo">Volvo</option>
+              <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+                  </select>
+            {/* <input
               type="text"
               value={bookDetails.genre}
               className="rounded form-control w-75"
@@ -104,7 +118,7 @@ const AddBookModal = forwardRef(function AddBookModal(
               onChange={(e) =>
                 setBookDetails({ ...bookDetails, genre: e.target.value })
               }
-            />
+            /> */}
           </div>
           <div>
             <h6 className="mt-2 text-light">Upload Image </h6>

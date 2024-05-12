@@ -39,6 +39,7 @@ function AdminDashBoard({ getAllBooks, deleteData, isLoading }) {
       console.log(result, "The Result");
   
       if (result.status != 200) {
+        console.log("Error");
         throw new Error("Something Went Wrong");
       }
       deleteData(id);

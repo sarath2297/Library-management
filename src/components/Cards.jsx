@@ -8,7 +8,7 @@ function Cards({displayCard}) {
     let title = displayCard?.title
     let author = displayCard?.author
     let time = new Date()
-    let userID = localStorage.getItem(`userId`)
+    let userId = localStorage.getItem(`userId`)
     let timeStamp = new Intl.DateTimeFormat("en-GB",{year:'numeric',month:'2-digit',day:'2-digit',
     hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(time)
         console.log (title,author,timeStamp);
@@ -16,7 +16,7 @@ function Cards({displayCard}) {
           title,
           author,
           timeStamp,
-          userID
+          userId
         }
     const response = await addUserBookApi(reqBody)
     console.log(response);

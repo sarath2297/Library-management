@@ -6,13 +6,53 @@ import NameTime from "../components/Common/NameTime"
 import Button from 'react-bootstrap/Button';
 import List_of_BooksStyle from "./List_of_Books.module.css";
 import { useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { getUserSelectedBooks, returnUserBook } from "../services/AllApis"
 
 function UserPage() {
 
-    const searchBooks = useNavigate()
+    const navBookList = useNavigate();
+
+    const userId=localStorage.getItem("userId");
 
     const gotoLibrary = ()=>{
-        searchBooks('/list')
+        navBookList('/list')
+    }
+
+    const[userbooks,setUserBooks]=useState([]);
+
+    useEffect(()=>{
+          const getUserBooks=async()=>{
+              try{
+                console.log(userId);
+                const userBookss=await getUserSelectedBooks(userId);
+                console.log(userBookss,"The User Books");
+                setUserBooks(userBookss.data)
+              }
+              catch(error){
+                    console.log("Error");
+              }
+          }
+          getUserBooks();
+    },[userId])
+
+
+    const returnUserBooks=async(bookId)=>{
+        try{
+            const removeStatus= await returnUserBook(bookId);
+            console.log(removeStatus);
+            if(!removeStatus.ok){
+                throw new Error("Some Error Ocuured")
+            }
+            setUserBooks((prevUserBooks)=>{
+                const userBooks=[...prevUserBooks];
+                return userBooks.filter((userBook)=>userBook.id!==bookId)
+            })
+        } 
+        catch(error){
+                console.log(error.message);
+        }
+         
     }
 
   return (
@@ -65,12 +105,17 @@ function UserPage() {
                               </tr>
                           </thead>
                           <tbody>
-                              <tr className='border-bottom border-light'>
-                                  <td>dv</td>
-                                  <td>sscdv</td>
-                                  <td>xasccdf</td>
-                                  <td><FontAwesomeIcon icon={faTrash}/></td>
-                              </tr>
+                          
+                              {userbooks.map(userbook=>{
+                                return (<tr key={userbook.id} className='border-bottom border-light'>
+                                  <td>{userbook.title}</td>
+                                  <td>{userbook.author}</td>
+                                  <td>{userbook.timeStamp}</td>
+                                  <td><button className="px-2 py-1 rounded" onClick={()=>{returnUserBooks(userbook.id)}}>Return Book</button></td>
+                              </tr>)
+                                
+
+                               })} 
                           </tbody>
                       </table>
                       

@@ -53,3 +53,8 @@ export const adduserWishlistApi = async(reqBody) =>{
 export const getUserWishlistApi = async(userId) =>{
    return await commonAPI('GET',`${baseURL}/userWishlist?userId=${userId}`,'')
 }
+
+//api to search book
+export const searchBookapi = async()=>{
+   return await commonAPI('GET',`${baseURL}/books`,'')
+}

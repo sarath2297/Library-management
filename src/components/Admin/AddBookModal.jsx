@@ -52,7 +52,7 @@ const AddBookModal = forwardRef(function AddBookModal(
     }
   };
 
-  console.log(bookDetails);
+  // console.log(bookDetails);
   const dropdown = document.getElementById("genreDropdown")
   const reset = ()=>{
     hideAddBookModal();

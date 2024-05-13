@@ -5,7 +5,7 @@ import UserPage from './Pages/UserPage'
 import AdminPage from './Pages/AdminPage'
 import List_of_Books from './Pages/List_of_Books'
 import Register from './Pages/Register'
-import { useState } from 'react'
+import Wishlist from './Pages/Wishlist'
 
 
 function App() {  
@@ -20,6 +20,7 @@ function App() {
         <Route path='/list' element={<List_of_Books/>}/>
         <Route path="*"  element={<LoginPage/>}/>
         <Route path="/register" element={<Register/>}/>
+        <Route path="/wishlist" element={<Wishlist/>}/>
 
       </Routes>
     </>

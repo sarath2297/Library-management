@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { addUserBookApi, adduserWishlistApi } from "../services/AllApis";
+=======
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import {addUserBookApi, adduserWishlistApi, } from '../services/AllApis'
+
+>>>>>>> master
 
 // React Toastify
 import { ToastContainer, toast } from "react-toastify";
@@ -60,6 +67,7 @@ function Cards({ displayCard }) {
     }
   };
 
+<<<<<<< HEAD
   return (
     <div>
       <Card style={{ width: "15rem", marginTop: "2px" }}>
@@ -113,6 +121,36 @@ function Cards({ displayCard }) {
         draggable
         pauseOnHovertheme="light"
       />
+=======
+  //api for wishlist
+  const userWishlistHistory = async () =>{
+    let title = displayCard?.title
+    let userId = localStorage.getItem(`userId`)
+    let reqBody = {
+      title,
+      userId
+    }
+    const response = await adduserWishlistApi(reqBody)
+    console.log(response);
+  }
+
+ 
+  
+  return (
+    <div>
+         <Card style={{ width: "15rem", marginTop:"2px",}}>
+            <Card.Img variant="top" src={displayCard?.imageLink} style={{height:'200px'}} />
+            <Card.Body>
+              <Card.Title style={{ overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '100%' }}>{displayCard?.title}</Card.Title>
+              <Card.Text style={{ overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '100%' }}>
+               <p>Author : {displayCard?.author}</p>
+               <p>Genre : {displayCard?.genre}</p>
+              </Card.Text>
+              <Button variant="primary" className='me-2' onClick={userBookHistory}>Take Book</Button>
+              <Button variant="warning" className='ms-2' onClick={userWishlistHistory}>Wishlist</Button>
+            </Card.Body>
+          </Card> 
+>>>>>>> master
     </div>
   );
 }

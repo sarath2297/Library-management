@@ -2,11 +2,14 @@ import { faBell, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import AdminNavrBarStyle from "./AdminNavBar.module.css";
-import { useRef} from "react";
+import { useRef, useState} from "react";
 import LogoutModal from "../LogoutModal";
 import AddBookModal from "./AddBookModal";
+import { searchBookapi } from "../../services/AllApis";
 
 const AdminNavBar = ({handleAddNewBook}) => {
+  const [inputSearch,setInputSearch] = useState("")
+
   const modal = useRef();
 
   const addBookModalRef=useRef();
@@ -26,6 +29,19 @@ const AdminNavBar = ({handleAddNewBook}) => {
     addBookModalRef.current.showModal();
   }
 
+console.log(inputSearch);
+
+  const handleSearch = async() =>{
+    const response = await searchBookapi()
+    console.log(response.data);
+    const books = response.data
+
+    const searchItem = books.filter(book=> book.title.toLowerCase().startsWith(inputSearch.toLowerCase()));
+    console.log(searchItem);
+
+  }
+
+
   return (
     <>
       <div className="d-flex justify-content-between align-items-center bg-warning py-2">
@@ -38,10 +54,12 @@ const AdminNavBar = ({handleAddNewBook}) => {
               type="text"
               className=" text-black"
               placeholder="Search books"
+              onChange={(event)=>setInputSearch(event.target.value)}
             />
             <FontAwesomeIcon
               icon={faMagnifyingGlass}
               className={AdminNavrBarStyle.searchIcon}
+              onClick={handleSearch}
             />
           </div>
 

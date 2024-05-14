@@ -56,7 +56,11 @@ function AdminDashBoard({ getAllBooks, deleteData, isLoading }) {
               <div className="me-3 d-flex align-items-center justify-content-between">
                 <h4 className="ms-3 pt-3">Book List</h4>
               </div>
+<<<<<<< HEAD
               <table className="ms-5 mt-4  position-relative" style={{ width: "100%" }}>
+=======
+              <table className="ms-5 mt-4  position-relative" style={{ width: "90%",overflowY:'scroll'}}>
+>>>>>>> master
                 <thead>
                   <tr className="border-bottom border-light">
                     <th>BookId</th>

@@ -52,17 +52,15 @@ function AdminDashBoard({ getAllBooks, deleteData, isLoading }) {
 
         <div className="row mb-5 mt-5">
           <div className="col-md-7">
-            <div className={AdminDashBoardStyles.tableBackgroundDiv}
-              // style={{
-              //   height: "350px",
-              //   width: "100%",
-               
-              // }}
-            >
+            <div className={AdminDashBoardStyles.tableBackgroundDiv}>
               <div className="me-3 d-flex align-items-center justify-content-between">
                 <h4 className="ms-3 pt-3">Book List</h4>
               </div>
+<<<<<<< HEAD
+              <table className="ms-5 mt-4  position-relative" style={{ width: "100%" }}>
+=======
               <table className="ms-5 mt-4  position-relative" style={{ width: "90%",overflowY:'scroll'}}>
+>>>>>>> master
                 <thead>
                   <tr className="border-bottom border-light">
                     <th>BookId</th>
@@ -83,11 +81,11 @@ function AdminDashBoard({ getAllBooks, deleteData, isLoading }) {
                           key={book?.id}
                           className="border-bottom border-light"
                         >
-                          <td>{book?.id}</td>
-                          <td>{book?.title}</td>
-                          <td>{book?.author}</td>
-                          <td>{book?.genre}</td>
-                          <td onClick={() => handleDeleteBook(book?.id)}>
+                          <td style={{width:'10%'}}>{book?.id}</td>
+                          <td style={{width:'30%'}}>{book?.title}</td>
+                          <td style={{width:'20%'}}>{book?.author}</td>
+                          <td style={{width:'10%'}}>{book?.genre}</td>
+                          <td style={{width:'10%'}} onClick={() => handleDeleteBook(book?.id)}>
                             {" "}
                             <FontAwesomeIcon icon={faTrash} />
                           </td>

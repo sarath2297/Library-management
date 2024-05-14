@@ -16,8 +16,9 @@ function Header() {
 
   const hideModal=()=>{
     modal.current.close();
-
   }
+
+  console.log(modal.current);
   
   return (
     <>

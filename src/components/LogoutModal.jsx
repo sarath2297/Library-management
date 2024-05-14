@@ -9,7 +9,6 @@ const LogoutModal = forwardRef(function LogoutModal({ hideModal }, ref) {
  const redirecttoLogin  = ()=>{
   backtoLogin('/')
  }
-
   return (
     <dialog ref={ref} className="mx-auto my-5 p-4 rounded" >
       <div className="d-flex flex-column  mt-2 align-items-center">
